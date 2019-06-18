@@ -13,7 +13,8 @@ LIB_COVE_OC4IDS_CONFIG_DEFAULT.update({
     'convert_titles': False,
     'schema_name': 'project-package-schema.json',
     'schema_item_name': 'project-schema.json',
-    'schema_host': 'http://standard.open-contracting.org/infrastructure/latest/en/',
+    'schema_host':
+    'http://standard.open-contracting.org/infrastructure/schema/0__9__1/'
 })
 
 
