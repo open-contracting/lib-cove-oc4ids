@@ -19,7 +19,8 @@ LIB_COVE_OC4IDS_CONFIG_DEFAULT.update({
 
 
 class LibCoveOC4IDSConfig(LibCoveConfig):
-    def __init__(self, config):
+    def __init__(self, config=None):
 
         self.config = LIB_COVE_OC4IDS_CONFIG_DEFAULT.copy()
-        self.config.update(config)
+        if config:
+            self.config.update(config)
