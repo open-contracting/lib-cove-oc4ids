@@ -1,0 +1,8 @@
+{
+    "hello": "pets",
+    "dogs": [
+        "biffer",
+        "boffer",
+        "buffer"
+    ]
+}

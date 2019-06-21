@@ -1,0 +1,110 @@
+{
+  "uri": "7",
+  "publishedDate": "2019-03-1409:54:00Z",
+  "version": null,
+  "publisher": {
+    "name": "Open Data Services Co-operative Limited",
+    "scheme": "GB-COH",
+    "uid": "9506232",
+    "uri": "http://data.companieshouse.gov.uk/doc/company/09506232"
+  },
+  "license": "http://opendatacommons.org/licenses/pddl/1.0/",
+  "publicationPolicy": "http://standard.open-contracting.org/latest/en/implementation/publication_policy/",
+  "projects": [
+    {
+      "id": "",
+      "updated": "2220-04-11T01:58:02.871Z",
+      "title": 4,
+      "description": -1,
+      "status": "BadStatusCode",
+      "period": "This should be an object",
+      "sector": "BadSectorCode",
+      "purpose": 90,
+      "additionalClassifications": "this should be an array",
+      "type": "BadTypeCode",
+      "locations": "This should be an array",
+      "budget": {
+        "amount": {
+          "amount": "This should be a number.",
+          "currency": "badCurrencyCode"
+        },
+        "approvaldate": "",
+        "budgetBreakdown": "This should be an array"
+      },
+      "parties": "This should be a parties array",
+      "documents": "This should be a documents array",
+      "contractingProcesses": {
+        "summary": 1
+      },
+      "additionalfield": "This is an additional field",
+      "completion": {
+        "endDate": null,
+        "endDateDtails": "",
+        "finalValue": "This should be an object",
+        "finalValueDetails": 5,
+        "finalScopeDetails": null
+      }
+    },
+    {
+      "contractingProcesses": {},
+      "documents": [
+        {"documentType": "this documents array is missing a required id",
+        "url":"This should be a uri",
+      "language": 6}],
+      "locations": [{
+        "description":"This location is missing an id, geometry/co-ordinates don't include numbers",
+        "geometry": { "coordinates": ["This should be a longitude number", "This should be a lat number"]},
+        "gazetteer": {"identifiers": [4,5,6]}
+      }],
+      "period": { "durationInDays": "This should be an integer"}
+    },
+    {
+      "id": null,
+      "contractingProcesses": [
+        {
+          "id": null,
+          "summary": "This should be an object",
+          "releases": [
+            {
+              "id": "LinkedRelease object with missing tag, data and url"
+            },
+            {
+              "id": "LinkedRelease object with numerical tag, data and url",
+              "tag": 5,
+              "date": 4,
+              "url": 6
+            },
+            {},
+            {
+              "id": null
+            }
+          ]
+        },
+        {
+          "id": "",
+          "summary": null
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": "contractingProcess with malformed summary/modifications (missing id, amount as string)",
+          "summary": {
+            "modifications": [
+              {
+                "date": "2016-06-01T00:00:00Z",
+                "oldContractValue": {
+                  "amount": "500",
+                  "currency": 3
+                }
+              }
+            ]
+          },
+          "releases": {
+            "id": "This is an ID in a releases object which should be an array"
+          }
+        }
+      ]
+    }
+  ]
+}
