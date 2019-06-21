@@ -1,7 +1,6 @@
 import json
 from libcove.lib.tools import get_file_type
 from libcoveoc4ids.common_checks import common_checks_oc4ids
-from libcoveoc4ids.lib.api import context_api_transform
 from libcoveoc4ids.config import LibCoveOC4IDSConfig
 from libcoveoc4ids.schema import SchemaOC4IDS
 
@@ -34,8 +33,11 @@ def oc4ids_json_output(output_dir, file, file_type=None, json_data=None,
 
         raise Exception("JSON only for now, sorry!")
 
-    context = context_api_transform(
-        common_checks_oc4ids(context, output_dir, json_data, schema_oc4ids, lib_cove_oc4ids_config=lib_cove_oc4ids_config)
-    )
+    context = common_checks_oc4ids(
+        context,
+        output_dir,
+        json_data,
+        schema_oc4ids,
+        lib_cove_oc4ids_config=lib_cove_oc4ids_config)
 
     return context
