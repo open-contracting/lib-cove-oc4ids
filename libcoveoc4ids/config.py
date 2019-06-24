@@ -8,7 +8,6 @@ LIB_COVE_OC4IDS_CONFIG_DEFAULT.update({
     # These default values are very wide on purpose. It is left to apps using this to tighten them up.
     'root_list_path': 'projects',
     'root_id': 'id',
-    'id_name': 'id',
     'root_is_list': False,
     'convert_titles': False,
     'schema_name': 'project-package-schema.json',
