@@ -1,0 +1,10 @@
+language: python
+cache: pip
+python:
+  - "3.6"
+  - "3.5"
+install:
+  - bash update_requirements.sh
+script:
+  - flake8
+  - python -m pytest tests/
