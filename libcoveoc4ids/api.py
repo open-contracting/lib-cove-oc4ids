@@ -10,7 +10,7 @@ class APIException(Exception):
 
 
 def oc4ids_json_output(output_dir, file, file_type=None, json_data=None,
-                     lib_cove_oc4ids_config=None):
+                       lib_cove_oc4ids_config=None):
 
     if not lib_cove_oc4ids_config:
         lib_cove_oc4ids_config = LibCoveOC4IDSConfig()
