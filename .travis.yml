@@ -4,7 +4,8 @@ python:
   - "3.6"
   - "3.5"
 install:
-  - bash update_requirements.sh
+  - pip install -r requirements.txt
+  - pip install -r requirements_dev.txt
 script:
   - flake8
   - python -m pytest tests/
