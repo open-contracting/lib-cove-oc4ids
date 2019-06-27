@@ -15,7 +15,6 @@ jdcal==1.4.1
 json-merge-patch==0.2
 jsonref==0.2
 jsonschema==2.6.0
--e git+git@github.com:OpenDataServices/lib-cove-oc4ids.git@19d13f42fdf94ff68225b660c16916596464e26b#egg=libcoveoc4ids
 lxml==4.3.4
 openpyxl==2.6.2
 
