@@ -2,10 +2,10 @@ from setuptools import setup, find_packages
 
 setup(
     name='libcoveoc4ids',
-    version='0.4.0',
+    version='0.0.0',
     author='Open Data Services',
     author_email='code@opendataservices.coop',
-    url='https://github.com/open-contracting/lib-cove-ocds',
+    url='https://github.com/opendataservices/lib-cove-oc4ids',
     description='A data review library',
     packages=find_packages(),
     long_description='A data review library',
@@ -30,5 +30,5 @@ setup(
             'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',
     ],
     entry_points='''[console_scripts]
-libcoveoc4ids = libcoveoc4ids.cli.__main__:main''',
+coveoc4ids-tool = libcoveoc4ids.cli.__main__:main''',
 )
