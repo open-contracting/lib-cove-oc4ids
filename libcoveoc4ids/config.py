@@ -1,11 +1,10 @@
-import os
-import datetime
 from libcove.config import LIB_COVE_CONFIG_DEFAULT, LibCoveConfig
 
 LIB_COVE_OC4IDS_CONFIG_DEFAULT = LIB_COVE_CONFIG_DEFAULT.copy()
 
 LIB_COVE_OC4IDS_CONFIG_DEFAULT.update({
-    # These default values are very wide on purpose. It is left to apps using this to tighten them up.
+    # These default values are very wide on purpose.
+    # It is left to apps using this to tighten them up.
     'root_list_path': 'projects',
     'root_id': 'id',
     'root_is_list': False,

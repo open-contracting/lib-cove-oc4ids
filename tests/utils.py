@@ -8,7 +8,8 @@ FIXTURE_PATH = os.path.join(
     os.path.dirname(os.path.realpath(__file__)), 'fixtures')
 
 TEST_TEMP_DIR = tempfile.mkdtemp(prefix='lib-cove-oc4ids-tests',
-     dir=tempfile.gettempdir())
+                                 dir=tempfile.gettempdir())
+
 
 def get_validation_errors(tempdir):
     """ returns the validation errors for the last run check """
@@ -30,8 +31,7 @@ def test_fixture(fixture_name):
 
         context = oc4ids_json_output(tmpdirname,
                                      get_path_for_fixture(fixture_name),
-                                    "json")
+                                     "json")
 
         errors = get_validation_errors(tmpdirname)
         return errors, context
-
