@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='libcoveoc4ids',
-    version='0.1.0',
+    version='0.1.1',
     author='Open Data Services',
     author_email='code@opendataservices.coop',
     url='https://github.com/opendataservices/lib-cove-oc4ids',
