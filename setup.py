@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-with open('README.md') as f:
+with open('README.rst') as f:
     long_description = f.read()
 
 setup(
@@ -13,7 +13,6 @@ setup(
     license='AGPLv3',
     packages=find_packages(exclude=['tests', 'tests.*']),
     long_description=long_description,
-    long_description_content_type='text/markdown',
     install_requires=[
         'flattentool',
         'libcove',
