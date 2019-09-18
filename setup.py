@@ -33,7 +33,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'coveoc4ids-tool = libcoveoc4ids.cli.__main__:main',
+            'libcoveoc4ids = libcoveoc4ids.cli.__main__:main',
         ],
     },
 )
