@@ -15,11 +15,10 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     install_requires=[
+        'flattentool',
         'libcove',
         'rfc3987',
         'strict-rfc3339',
-        # The following are in .travis.yml instead.
-        # 'flatten-tool',
     ],
     extras_require={
         'test': [
