@@ -3,7 +3,6 @@ language: python
 cache: pip
 python:
   - "3.6"
-  - "3.5"
 env:
   - BASEDIR="https://raw.githubusercontent.com/open-contracting/standard-maintenance-scripts/master"
 install:
