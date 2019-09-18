@@ -27,8 +27,8 @@ setup(
         'rfc3987',
         'strict-rfc3339',
         # The following are in .travis.yml instead.
-        # 'flatten-tool>=v0.5.0',
-        # 'lib-cove>=v0.3.1',
+        # 'flatten-tool',
+        # 'lib-cove',
     ],
     extras_require={
         'test': [
