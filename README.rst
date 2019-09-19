@@ -1,7 +1,7 @@
 Lib Cove OC4IDS
 ===============
 
-|Build Status| |Coverage Status|
+|PyPI Version| |Build Status| |Coverage Status| |Python Version|
 
 Command line
 ------------
@@ -19,7 +19,11 @@ The only code that should be used directly by users is the ``libcoveoc4ids.confi
 
 Other code (in ``lib``, etc.) should not be used by external users of this library directly, as the structure and use of these may change more frequently.
 
-.. |Build Status| image:: https://secure.travis-ci.org/open-contracting/lib-cove-ocds.png
-   :target: https://travis-ci.org/open-contracting/lib-cove-ocds
-.. |Coverage Status| image:: https://coveralls.io/repos/github/open-contracting/lib-cove-ocds/badge.svg?branch=master
-   :target: https://coveralls.io/github/open-contracting/lib-cove-ocds?branch=master
+.. |PyPI Version| image:: https://img.shields.io/pypi/v/libcoveoc4ids.svg
+   :target: https://pypi.org/project/libcoveoc4ids/
+.. |Build Status| image:: https://secure.travis-ci.org/open-contracting/lib-cove-oc4ids.png
+   :target: https://travis-ci.org/open-contracting/lib-cove-oc4ids
+.. |Coverage Status| image:: https://coveralls.io/repos/github/open-contracting/lib-cove-oc4ids/badge.svg?branch=master
+   :target: https://coveralls.io/github/open-contracting/lib-cove-oc4ids?branch=master
+.. |Python Version| image:: https://img.shields.io/pypi/pyversions/libcoveoc4ids.svg
+   :target: https://pypi.org/project/libcoveoc4ids/
