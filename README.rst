@@ -19,6 +19,18 @@ The only code that should be used directly by users is the ``libcoveoc4ids.confi
 
 Other code (in ``lib``, etc.) should not be used by external users of this library directly, as the structure and use of these may change more frequently.
 
+PyPi
+----
+
+This project is published on PyPi. https://pypi.org/project/libcoveoc4ids/
+
+When creating a release version, please make sure to publish there too. 
+
+::
+
+   python setup.py sdist upload
+
+
 .. |PyPI Version| image:: https://img.shields.io/pypi/v/libcoveoc4ids.svg
    :target: https://pypi.org/project/libcoveoc4ids/
 .. |Build Status| image:: https://secure.travis-ci.org/open-contracting/lib-cove-oc4ids.png
