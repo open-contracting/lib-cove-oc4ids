@@ -1,5 +1,6 @@
-from libcove.lib.common import SchemaJsonMixin
 from urllib.parse import urljoin
+
+from libcove.lib.common import SchemaJsonMixin
 
 
 class SchemaOC4IDS(SchemaJsonMixin):

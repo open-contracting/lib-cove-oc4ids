@@ -1,8 +1,8 @@
+import json
 import os
 import tempfile
-import json
-from libcoveoc4ids.api import oc4ids_json_output
 
+from libcoveoc4ids.api import oc4ids_json_output
 
 FIXTURE_PATH = os.path.join(
     os.path.dirname(os.path.realpath(__file__)), 'fixtures')

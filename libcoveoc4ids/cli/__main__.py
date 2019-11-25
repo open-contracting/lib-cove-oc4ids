@@ -1,8 +1,9 @@
 import argparse
-import libcoveoc4ids.api
-import tempfile
-import shutil
 import json
+import shutil
+import tempfile
+
+import libcoveoc4ids.api
 
 
 def main():
