@@ -1,4 +1,5 @@
 from collections import OrderedDict
+
 from libcove.config import LIB_COVE_CONFIG_DEFAULT, LibCoveConfig
 
 versions = OrderedDict()

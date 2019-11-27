@@ -1,5 +1,7 @@
 import json
+
 from libcove.lib.tools import get_file_type
+
 from libcoveoc4ids.common_checks import common_checks_oc4ids
 from libcoveoc4ids.config import LibCoveOC4IDSConfig
 from libcoveoc4ids.schema import SchemaOC4IDS

@@ -1,6 +1,7 @@
-import subprocess
-import tests.utils as utils
 import json
+import subprocess
+
+import tests.utils as utils
 
 
 def test_cli_runs():
