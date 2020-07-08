@@ -5,7 +5,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        # libcove is Windows-only.
+        # libcove doesn't support Windows.
+        # https://github.com/OpenDataServices/lib-cove/issues/53
         os: [macos-latest, ubuntu-latest]
         python-version: [3.6, 3.7, 3.8]
     steps:
