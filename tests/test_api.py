@@ -76,10 +76,10 @@ def test_validation_errors():
     assert len(invalid_object) == 3, "Expecting 3 invalid objects"
     assert len(invalid_array) == 8, "Expecting 8 invalid arrays"
     assert len(invalid_number) == 4, "Expecting 4 invalid numbers"
-    assert len(invalid_length) == 1, "Expecting 1 invalid value length"
-    assert len(missing_value) == 14, "Expecting 14 missing values"
+    assert len(invalid_length) == 2, "Expecting 2 invalid value lengths"
+    assert len(missing_value) == 8, "Expecting 8 missing values"
 
-    assert len(errors.keys()) == 57, "Expecting total of 57 validation errors!"
+    assert len(errors.keys()) == 52, "Expecting total of 52 validation errors!"
 
 
 def test_additional_fields():

@@ -70,7 +70,7 @@
             },
             {
               "id": "LinkedRelease object with numerical tag, data and url",
-              "tag": 5,
+              "tag": [5],
               "date": 4,
               "url": 6
             },
