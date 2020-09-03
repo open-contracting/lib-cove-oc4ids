@@ -5,7 +5,7 @@ with open('README.rst') as f:
 
 setup(
     name='libcoveoc4ids',
-    version='0.1.2',
+    version='0.2.0',
     author='Open Data Services',
     author_email='data@open-contracting.org',
     url='https://github.com/open-contracting/lib-cove-oc4ids',
@@ -15,7 +15,7 @@ setup(
     long_description=long_description,
     install_requires=[
         'flattentool',
-        'libcove',
+        'libcove>=0.18.0',
         'rfc3987',
         'strict-rfc3339',
     ],

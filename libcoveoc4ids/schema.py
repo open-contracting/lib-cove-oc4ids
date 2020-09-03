@@ -11,7 +11,7 @@ class SchemaOC4IDS(SchemaJsonMixin):
         self.version_choices = \
             lib_cove_oc4ids_config.config['schema_version_choices']
         self.schema_host = lib_cove_oc4ids_config.config['schema_host']
-        self.release_schema_name = lib_cove_oc4ids_config.config['schema_item_name']
-        self.release_pkg_schema_name = lib_cove_oc4ids_config.config['schema_name']
-        self.release_schema_url = urljoin(self.schema_host, self.release_schema_name)
-        self.release_pkg_schema_url = urljoin(self.schema_host, self.release_pkg_schema_name)
+        self.schema_name = lib_cove_oc4ids_config.config['schema_item_name']
+        self.pkg_schema_name = lib_cove_oc4ids_config.config['schema_name']
+        self.schema_url = urljoin(self.schema_host, self.schema_name)
+        self.pkg_schema_url = urljoin(self.schema_host, self.pkg_schema_name)
