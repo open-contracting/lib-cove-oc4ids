@@ -1,6 +1,7 @@
 from urllib.parse import urljoin
 
 from libcove.lib.common import SchemaJsonMixin
+
 import libcoveoc4ids.config
 
 
