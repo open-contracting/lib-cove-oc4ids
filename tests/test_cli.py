@@ -33,3 +33,5 @@ def test_output(tmpdir):
 
     with open(output_path) as f:
         json.load(f)
+
+    assert output == b''
