@@ -24,7 +24,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pip-
     - run: pip install .[test]
-    - run: pytest --cov libcoveoc4ids
+    - name: Test
+      run: |
+        coverage run --append --source=libcoveoc4ids -m pytest
+        pip install orjson
+        coverage run --append --source=libcoveoc4ids -m pytest
+        pip uninstall -y orjson
     - run: curl https://raw.githubusercontent.com/open-contracting/infrastructure/0.9-dev/docs/examples/example.json > example.json
     - run: libcoveoc4ids example.json
     - env:
