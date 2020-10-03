@@ -21,7 +21,7 @@ class APIException(Exception):
 
 
 def oc4ids_json_output(output_dir, file, file_type=None, json_data=None,
-                       lib_cove_oc4ids_config=None):
+                       lib_cove_oc4ids_config=None, cache=True):
 
     if not lib_cove_oc4ids_config:
         lib_cove_oc4ids_config = LibCoveOC4IDSConfig()
@@ -56,6 +56,7 @@ def oc4ids_json_output(output_dir, file, file_type=None, json_data=None,
         output_dir,
         json_data,
         schema_oc4ids,
-        lib_cove_oc4ids_config=lib_cove_oc4ids_config)
+        lib_cove_oc4ids_config=lib_cove_oc4ids_config,
+        cache=cache)
 
     return context

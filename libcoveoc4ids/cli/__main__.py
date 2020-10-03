@@ -18,7 +18,8 @@ def main():
         result = oc4ids_json_output(
             cove_temp_folder,
             args.filename,
-            file_type='json'
+            file_type='json',
+            cache=False,
         )
     finally:
         shutil.rmtree(cove_temp_folder)
