@@ -20,6 +20,9 @@ setup(
         'strict-rfc3339',
     ],
     extras_require={
+        'perf': [
+            'orjson>=3',
+        ],
         'test': [
             'coveralls',
             'pytest',
