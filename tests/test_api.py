@@ -104,7 +104,7 @@ def test_additional_checks():
     """ Test the additional checks if a currency is missing"""
     errors, ctx = utils.test_fixture("example-additional-checks.json")
     checked = 0
-    expected_checks = 2
+    expected_checks = 3
 
     assert len(ctx["additional_checks"]) == expected_checks, "Additional checks are incomplete"
 
@@ -120,7 +120,7 @@ def test_additional_checks():
         assert type(check_result["message"] is str), "Type additional check message is not a string"
         assert type(check_result["paths"] is list), "Type additional check paths is not a list"
 
-        if check_result["check_id"] in ["missing-currency", "missing-values"]:
+        if check_result["check_id"] in ["missing-currency", "missing-values", "invalid-project-ids"]:
             checked += 1
 
     assert(expected_checks == checked), \
