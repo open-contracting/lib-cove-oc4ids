@@ -12,7 +12,7 @@
   "publicationPolicy": "https://standard.open-contracting.org/1.1/en/implementation/publication_policy/",
   "projects": [
     {
-      "id": "a-broken-project-id",
+      "id": "oc4ids-bu3kcz-m75-junctions-4-to-5-smart-motorway",
       "updated": "2018-12-10T15:53:00Z",
       "title": "M75 Junctions 4 to 5 upgrade smart motorway",
       "description": "Upgrading the 5km stretch of the M75 near Birmingham Airport, between junction 4 near Patcham and junction 5 at Windlesham, to an all-lane running smart motorway.",
@@ -79,7 +79,7 @@
           },
           "gazetteer": {
             "scheme": "osm",
-            "identifiers": []
+            "identifiers": [ "123456" ]
           },
           "address": {
             "streetAddress": "Windlesham Interchange, Old Road",
@@ -93,7 +93,8 @@
       ],
       "budget": {
         "amount": {
-          "amount": 40000000
+          "amount": 40000000,
+          "currency": "GBP"
         },
         "requestDate": "2015-05-30T00:00:00Z",
         "approvalDate": "2015-06-24T00:00:00Z",
@@ -111,7 +112,7 @@
             },
             "sourceParty": {
               "name": "Motorways UK",
-              "id": "GB-GOR-XX1234"
+              "id": "GB-GOR-XX12347"
             }
           },
           {
@@ -127,7 +128,7 @@
             },
             "sourceParty": {
               "name": "Motorways UK",
-              "id": "GB-GOR-XX1234"
+              "id": "GB-GOR-XX12346"
             }
           },
           {
@@ -143,148 +144,14 @@
             },
             "sourceParty": {
               "name": "Motorways UK",
-              "id": "GB-GOR-XX1234"
+              "id": "GB-GOR-XX12345"
             }
           }
         ]
       },
-      "parties": [
-        {
-          "name": "Motorways UK",
-          "id": "GB-GOR-XX1234",
-          "identifier": {
-            "scheme": "GB-GOR",
-            "legalName": "Motorways UK",
-            "id": "XX1234",
-            "uri": "https://government-organisation.register.gov.uk/records/XX1234"
-          },
-          "address": {
-            "postalCode": "LL55 4NY",
-            "countryName": "UK",
-            "streetAddress": "8 Mountain Walk",
-            "region": "Westshire",
-            "locality": "Patcham"
-          },
-          "contactPoint": {
-            "name": "Motorways Manager",
-            "email": "EX12345@motorwaysuk.gov.uk",
-            "telephone": "+44 0123 456 7890",
-            "faxNumber": "+44 0123 456 7891"
-          },
-          "roles": [
-            "procuringEntity",
-            "buyer",
-            "administrativeEntity",
-            "publicAuthority"
-          ]
-        },
-        {
-          "name": "A1 Expert Smart Moto Design",
-          "id": "GB-COH-11111111",
-          "identifier": {
-            "scheme": "GB-COH",
-            "id": "11111111",
-            "legalName": "A1 Expert Smart Moto Design Ltd",
-            "uri": "https://beta.companieshouse.gov.uk/company/11111111"
-          },
-          "address": {
-            "streetAddress": "Farm Grove, Prince Road",
-            "locality": "Patcham",
-            "region": "Westshire",
-            "postalCode": "WS18 5BW",
-            "countryName": "UK"
-          },
-          "contactPoint": {
-            "name": "Kim Designer",
-            "email": "kim.designerd@a1expertsmart.com",
-            "telephone": "+44 0123 456 7890",
-            "url": "https://www.example.com"
-          },
-          "roles": [
-            "supplier",
-            "tenderer"
-          ]
-        },
-        {
-          "name": "Motorway Design Services PLC",
-          "id": "GB-COH-12345678",
-          "identifier": {
-            "scheme": "GB-COH",
-            "id": "12345678",
-            "legalName": "Motorway Design Services PLC",
-            "uri": "https://beta.companieshouse.gov.uk/company/22222222"
-          },
-          "address": {
-            "streetAddress": "567 High Street",
-            "locality": "Mareham",
-            "region": "Eastshire",
-            "postalCode": "ES22 3TW",
-            "countryName": "UK"
-          },
-          "roles": [
-            "tenderer"
-          ]
-        },
-        {
-          "name": "Expert Motorway Supervisors Ltd",
-          "id": "GB-COH-22222222",
-          "identifier": {
-            "scheme": "GB-COH",
-            "id": "22222222",
-            "legalName": "Expert Motorway Supervisors Ltd",
-            "uri": "https://beta.companieshouse.gov.uk/company/22222222"
-          },
-          "address": {
-            "streetAddress": "9 Seaview Road",
-            "locality": "London",
-            "region": "London",
-            "postalCode": "SE1 1EZ",
-            "countryName": "UK"
-          },
-          "contactPoint": {
-            "name": "Supervisor Manager",
-            "email": "supervisor.manager@example.com",
-            "telephone": "+44 0123 456 7890",
-            "faxNumber": "+44 0123 456 7891",
-            "url": "https://www.example.com"
-          },
-          "roles": [
-            "supplier",
-            "tenderer"
-          ]
-        },
-        {
-          "name": "Concrete Motorways Construction",
-          "id": "GB-COH-33333333",
-          "identifier": {
-            "scheme": "GB-COH",
-            "id": "33333333",
-            "legalName": "Concrete Motorways Construction Ltd",
-            "uri": "https://beta.companieshouse.gov.uk/company/33333333"
-          },
-          "address": {
-            "streetAddress": "5 Example Grove",
-            "locality": "London",
-            "region": "London",
-            "postalCode": "SW1A 1AA",
-            "countryName": "UK"
-          },
-          "contactPoint": {
-            "name": "Construction Manager",
-            "email": "construction.example@example.com",
-            "telephone": "+44 0123 456 7890",
-            "faxNumber": "+44 0123 456 7891",
-            "url": "https://www.example.com"
-          },
-          "roles": [
-            "supplier",
-            "tenderer"
-          ]
-        }
-      ],
       "publicAuthority": {
         "name": "Motorways UK",
-        "id": "GB-GOR-XX1234-does-not-exist-in-parties"
+        "id": "GB-GOR-XX1234"
       },
       "documents": [
         {
@@ -357,13 +224,13 @@
               ],
               "procuringEntity": {
                 "name": "Motorways UK",
-                "id": "GB-GOR-XX1234"
+                "id": "GB-GOR-XX12347"
               }
             },
             "suppliers": [
               {
                 "name": "A1 Expert Smart Moto Design",
-                "id": "GB-COH-111111112"
+                "id": "GB-COH-11111111"
               }
             ],
             "contractValue": {
@@ -437,11 +304,11 @@
               ],
               "procuringEntity": {
                 "name": "Motorways UK",
-                "id": "GB-GOR-XX1234"
+                "id": "GB-GOR-XX12348"
               },
               "administrativeEntity": {
                 "name": "Motorways UK",
-                "id": "GB-GOR-XX1234"
+                "id": "GB-GOR-XX12340"
               }
             },
             "suppliers": [
@@ -536,7 +403,7 @@
               ],
               "procuringEntity": {
                 "name": "Motorways UK",
-                "id": "GB-GOR-XX1234"
+                "id": "GB-GOR-XX12349"
               }
             },
             "suppliers": [

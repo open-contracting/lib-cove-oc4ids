@@ -88,8 +88,61 @@ class ProjectPrefixCheck(AdditionalCheck):
         )
 
 
+class OrgReferencesExistCheck(AdditionalCheck):
+    project_id_match = re.compile(r"^/projects/\d+")
+    # Cache of project party ids
+    project_parties_ids = {}
+
+    def extract_project_from_path(self, path):
+        """ Matches /projects/<int> and returns the int portion """
+        return int(self.project_id_match.match(path).group()[len("/projects/"):])
+
+    def projects_parties_ids(self, data, project):
+        try:
+            return self.project_parties_ids[project]
+        except KeyError:
+            try:
+                self.project_parties_ids[project] = [
+                    party["id"] for party in data["projects"][project]["parties"]
+                ]
+                return self.project_parties_ids[project]
+            except KeyError:
+                # This happens if the project has no parties defined
+                return []
+
+    def process(self, data, flat_data):
+        org_paths = re.compile(
+            r"(.*)(publicAuthority|budget\/budgetBreakdown\/\d+\/sourceParty|"
+            r"contractingProcesses\/\d+\/summary\/(tender|suppliers\/\d+)(\/)"
+            r"*(tenderers\/\d+|procuringEntity|administrativeEntity)*)\/id$"
+        )
+
+        missing_references_paths = []
+
+        for path, value in flat_data.items():
+            if org_paths.match(path):
+                project = self.extract_project_from_path(path)
+
+                if value not in self.projects_parties_ids(data, project):
+                    missing_references_paths.append(path)
+
+        if len(missing_references_paths) == 0:
+            return True
+
+        return self.result(
+            "missing-org-refs",
+            _(
+                "There are %(count)d organization references with an id that does not match the id of any parties. "
+                "All Organisation references should have an associated entry in the parties array with a matching id"
+            )
+            % {"count": len(missing_references_paths)},
+            missing_references_paths,
+        )
+
+
 additional_checks = [
     EmptyValueCheck(),
     CurrencyCheck(),
     ProjectPrefixCheck(),
+    OrgReferencesExistCheck(),
 ]

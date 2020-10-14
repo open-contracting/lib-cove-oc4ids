@@ -72,7 +72,7 @@ def test_validation_errors():
     assert len(invalid_uri) == 2, "Expecting 2 invalid uris"
     assert len(invalid_date) == 1, "Expecting 1 invalid dates"
     assert len(invalid_string) == 18, "Expecting 18 invalid strings"
-    assert len(invalid_int) == 1, "Expecting 1 invalid intergers"
+    assert len(invalid_int) == 1, "Expecting 1 invalid integers"
     assert len(invalid_object) == 3, "Expecting 3 invalid objects"
     assert len(invalid_array) == 8, "Expecting 8 invalid arrays"
     assert len(invalid_number) == 4, "Expecting 4 invalid numbers"
@@ -101,10 +101,10 @@ def test_invalid_json():
 
 
 def test_additional_checks():
-    """ Test the additional checks if a currency is missing"""
+    """ Test the additional checks to make sure each expected one is present in test data"""
     errors, ctx = utils.test_fixture("example-additional-checks.json")
     checked = 0
-    expected_checks = 3
+    expected_checks = 4
 
     assert len(ctx["additional_checks"]) == expected_checks, "Additional checks are incomplete"
 
@@ -120,8 +120,23 @@ def test_additional_checks():
         assert type(check_result["message"] is str), "Type additional check message is not a string"
         assert type(check_result["paths"] is list), "Type additional check paths is not a list"
 
-        if check_result["check_id"] in ["missing-currency", "missing-values", "invalid-project-ids"]:
+        if check_result["check_id"] in [
+            "missing-currency",
+            "missing-values",
+            "invalid-project-ids",
+            "missing-org-refs"
+        ]:
             checked += 1
 
     assert(expected_checks == checked), \
         "Checks tested not expected total for this test data %s" % ctx["additional_checks"]
+
+
+def test_additional_checks_no_parties():
+    """ Extra check on missing-org-refs by removing all the parties definitions and thus"""
+    """ triggering for every possible path"""
+
+    errors, ctx = utils.test_fixture("example-additional-checks-no-parties.json")
+
+    assert len(ctx["additional_checks"][0]["paths"]) == 15, "The number of paths where organisation refs"\
+        " are missing is not correct"
