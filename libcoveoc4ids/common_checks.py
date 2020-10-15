@@ -18,7 +18,7 @@ def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, lib_cove_oc
 
     flattened_data = dict(flatten_dict(json_data))
 
-    for additional_check in additional_checks:
+    for additional_check in additional_checks():
         check_result = additional_check.process(json_data, flattened_data)
         # Check passed, continue
         if check_result is True:

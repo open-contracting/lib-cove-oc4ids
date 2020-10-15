@@ -90,11 +90,14 @@ class ProjectPrefixCheck(AdditionalCheck):
 
 class OrgReferencesExistCheck(AdditionalCheck):
     project_id_match = re.compile(r"^/projects/\d+")
-    # Cache of project party ids
-    project_parties_ids = {}
+
+    def __init__(self, *args, **kwargs):
+        # Cache of project party ids
+        self.project_parties_ids = {}
 
     def extract_project_from_path(self, path):
         """ Matches /projects/<int> and returns the int portion """
+
         return int(self.project_id_match.match(path).group()[len("/projects/"):])
 
     def projects_parties_ids(self, data, project):
@@ -122,7 +125,6 @@ class OrgReferencesExistCheck(AdditionalCheck):
         for path, value in flat_data.items():
             if org_paths.match(path):
                 project = self.extract_project_from_path(path)
-
                 if value not in self.projects_parties_ids(data, project):
                     missing_references_paths.append(path)
 
@@ -140,9 +142,10 @@ class OrgReferencesExistCheck(AdditionalCheck):
         )
 
 
-additional_checks = [
-    EmptyValueCheck(),
-    CurrencyCheck(),
-    ProjectPrefixCheck(),
-    OrgReferencesExistCheck(),
-]
+def additional_checks():
+    return [
+        EmptyValueCheck(),
+        CurrencyCheck(),
+        ProjectPrefixCheck(),
+        OrgReferencesExistCheck(),
+    ]
