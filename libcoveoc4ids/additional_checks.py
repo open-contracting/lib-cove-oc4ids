@@ -27,7 +27,7 @@ class CurrencyCheck(AdditionalCheck):
         return self.result(
             "missing-currency",
             _(
-                "There are %(count)d values without a currency, Currencies should be published for all values"
+                "There are %(count)d values without a currency. Currencies should be published for all values."
             )
             % {"count": len(missing)},
             missing,
@@ -80,8 +80,8 @@ class ProjectPrefixCheck(AdditionalCheck):
         return self.result(
             "invalid-project-ids",
             _(
-                "%(count)d of your oc4ids project fields has a problem: "
-                "There is no prefix or the prefix format is not recognised"
+                "%(count)d of your project id fields has a problem: "
+                "There is no prefix or the prefix format is not recognised."
             )
             % {"count": len(invalid_project_id_paths)},
             invalid_project_id_paths,
@@ -135,7 +135,7 @@ class OrgReferencesExistCheck(AdditionalCheck):
             "missing-org-refs",
             _(
                 "There are %(count)d organization references with an id that does not match the id of any parties. "
-                "All Organisation references should have an associated entry in the parties array with a matching id"
+                "All organization references should have an associated entry in the parties array with a matching id."
             )
             % {"count": len(missing_references_paths)},
             missing_references_paths,
