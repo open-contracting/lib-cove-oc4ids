@@ -20,7 +20,11 @@ LIB_COVE_OC4IDS_CONFIG_DEFAULT.update({
     'schema_version': '0.9.2',
     'schema_version_choices': versions,
     'schema_host':
-    'http://standard.open-contracting.org/infrastructure/schema/0__9__2/'
+    'http://standard.open-contracting.org/infrastructure/schema/0__9__2/',
+    'schema_codelists': OrderedDict((
+        ("0.9",
+         "https://raw.githubusercontent.com/open-contracting/infrastructure/0.9/schema/project-level/codelists/"),
+    ))
 })
 
 

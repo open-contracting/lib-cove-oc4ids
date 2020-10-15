@@ -1,5 +1,6 @@
-from libcove.lib.common import common_checks_context
+from libcove.lib.common import common_checks_context, get_additional_codelist_values
 from libcoveocds.lib.additional_checks import flatten_dict
+from libcoveocds.lib.common_checks import get_releases_aggregates
 
 from libcoveoc4ids.additional_checks import additional_checks
 from libcoveoc4ids.config import LibCoveOC4IDSConfig
@@ -11,11 +12,14 @@ def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, lib_cove_oc
     if not lib_cove_oc4ids_config:
         lib_cove_oc4ids_config = LibCoveOC4IDSConfig()
 
+    # Common schema checks
     common_checks = common_checks_context(upload_dir, json_data, schema_obj,
                                           'schema.json', context, cache=cache)
 
     context.update(common_checks["context"])
+    # end Common checks
 
+    # Additional checks
     flattened_data = dict(flatten_dict(json_data))
 
     for additional_check in additional_checks():
@@ -27,5 +31,24 @@ def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, lib_cove_oc
         additional_checks_results.append(check_result)
 
     context.update({"additional_checks": additional_checks_results})
+    # end Additional checks
+
+    # codelist checks
+    validation_errors = common_checks["context"]["validation_errors"]
+
+    additional_codelist_values = get_additional_codelist_values(schema_obj, json_data)
+    closed_codelist_values = {
+        key: value for key, value in additional_codelist_values.items() if not value["isopen"]
+    }
+    open_codelist_values = {key: value for key, value in additional_codelist_values.items() if value["isopen"]}
+
+    context.update(
+        {
+            "releases_aggregates": get_releases_aggregates(json_data, ignore_errors=bool(validation_errors)),
+            "additional_closed_codelist_values": closed_codelist_values,
+            "additional_open_codelist_values": open_codelist_values,
+        }
+    )
+    # end codelist check
 
     return context
