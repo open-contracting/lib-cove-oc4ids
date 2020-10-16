@@ -52,7 +52,9 @@ class EmptyValueCheck(AdditionalCheck):
 
         return self.result(
             "missing-values",
-            _("There are %(count)d fields without values") % {"count": len(missing)},
+            _("The data includes fields that are empty or contain only whitespaces. "
+                "Fields that are not being used, or that have no value, "
+                "should be excluded in their entirety (key and value) from the data"),
             missing,
         )
 
