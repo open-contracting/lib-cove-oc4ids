@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2020-10-16
+
+### Added
+
+ - Codelist checks
+ - Additional checks for; currency specified, empty values, project prefixes and the presence of org id references.
+ - Translation support via gettext
+ - Tool for generating large test data
+ - Optional support for orjson for improved performance
+ - Command line option to write output to file `-o OUTPUT`
+
+### Changed
+
+- Requirements now depends on libcoveocds
+- Refactored config variable names
+
 ## [0.2.0] - 2020-09-03
 
 ### Changed
