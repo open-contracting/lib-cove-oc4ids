@@ -140,3 +140,14 @@ def test_additional_checks_no_parties():
 
     assert len(ctx["additional_checks"][0]["paths"]) == 15, "The number of paths where organisation refs"\
         " are missing is not correct"
+
+
+def test_codelist_checks():
+    errors, ctx = utils.test_fixture("example-additional-codes.json")
+
+    assert ctx["additional_open_codelist_values"]["projects/sector"]["values"][0] == "extraSector"
+    assert ctx["additional_open_codelist_values"]["projects/parties/roles"]["values"][0] == "extraRole"
+    assert ctx["additional_open_codelist_values"]["projects/documents/documentType"]["values"][0] == \
+        "x_consultationResponses"
+
+    assert ctx["additional_closed_codelist_values"]["projects/budget/amount/currency"]["values"][0] == "X_GBP"
