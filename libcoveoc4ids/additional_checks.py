@@ -95,22 +95,22 @@ class OrgReferencesExistCheck(AdditionalCheck):
 
     def __init__(self, *args, **kwargs):
         # Cache of project party ids
-        self.project_parties_ids = {}
+        self._cached_project_parties_ids = {}
 
     def extract_project_from_path(self, path):
         """ Matches /projects/<int> and returns the int portion """
 
         return int(self.project_id_match.match(path).group()[len("/projects/"):])
 
-    def projects_parties_ids(self, data, project):
+    def project_parties_ids(self, data, project):
         try:
-            return self.project_parties_ids[project]
+            return self._cached_project_parties_ids[project]
         except KeyError:
             try:
-                self.project_parties_ids[project] = [
+                self._cached_project_parties_ids[project] = [
                     party["id"] for party in data["projects"][project]["parties"]
                 ]
-                return self.project_parties_ids[project]
+                return self._cached_project_parties_ids[project]
             except KeyError:
                 # This happens if the project has no parties defined
                 return []
@@ -127,7 +127,7 @@ class OrgReferencesExistCheck(AdditionalCheck):
         for path, value in flat_data.items():
             if org_paths.match(path):
                 project = self.extract_project_from_path(path)
-                if value not in self.projects_parties_ids(data, project):
+                if value not in self.project_parties_ids(data, project):
                     missing_references_paths.append(path)
 
         if len(missing_references_paths) == 0:
