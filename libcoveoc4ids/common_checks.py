@@ -4,6 +4,7 @@ from libcoveocds.lib.common_checks import get_releases_aggregates
 
 from libcoveoc4ids.additional_checks import additional_checks
 from libcoveoc4ids.config import LibCoveOC4IDSConfig
+from libcoveoc4ids.conformance_checks import conformance_checks
 
 
 def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, lib_cove_oc4ids_config=None, cache=True):
@@ -17,10 +18,26 @@ def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, lib_cove_oc
                                           'schema.json', context, cache=cache)
 
     context.update(common_checks["context"])
+
+    flattened_data = dict(flatten_dict(json_data))
+
     # end Common checks
 
+    # Conformance checks
+    conformance_checks_results = []
+
+    for conformance_check in conformance_checks():
+        check_result = conformance_check.process(json_data, flattened_data)
+        # Check passed, continue
+        if check_result is True:
+            continue
+
+        conformance_checks_results.append(check_result)
+
+    context.update({"conformance_checks": conformance_checks_results})
+    # end conformance checks
+
     # Additional checks
-    flattened_data = dict(flatten_dict(json_data))
 
     for additional_check in additional_checks():
         check_result = additional_check.process(json_data, flattened_data)
