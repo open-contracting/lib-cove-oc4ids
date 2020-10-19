@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.3.1] - 2020-10-19
+
+### Changed
+
+ - The check for project id prefix has been moved into a conformance check. This required a minor bit of refactoring.
+
 ## [0.3.0] - 2020-10-16
 
 ### Added
