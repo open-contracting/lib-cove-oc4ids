@@ -31,6 +31,7 @@ def test_validation_errors():
 
     missing_value = []
     invalid_length = []
+    bad_match = []
 
     for err in errors:
         if "Invalid code found in" in err:
@@ -63,23 +64,27 @@ def test_validation_errors():
         elif "is missing but required" in err:
             missing_value.append(err)
 
+        elif "does not match" in err:
+            bad_match.append(err)
+
         else:
             # We shouldn't reach here if we have sorted all the validation
             # errors
             assert False, "Validation error '%s' not captured" % err
 
-    assert len(invalid_code) == 5, "Expecting 5 invalid codes"
-    assert len(invalid_uri) == 2, "Expecting 2 invalid uris"
-    assert len(invalid_date) == 1, "Expecting 1 invalid dates"
-    assert len(invalid_string) == 18, "Expecting 18 invalid strings"
-    assert len(invalid_int) == 1, "Expecting 1 invalid integers"
-    assert len(invalid_object) == 3, "Expecting 3 invalid objects"
-    assert len(invalid_array) == 8, "Expecting 8 invalid arrays"
-    assert len(invalid_number) == 4, "Expecting 4 invalid numbers"
-    assert len(invalid_length) == 2, "Expecting 2 invalid value lengths"
-    assert len(missing_value) == 8, "Expecting 8 missing values"
+    assert len(invalid_code) == 5
+    assert len(invalid_uri) == 1
+    assert len(invalid_date) == 4
+    assert len(invalid_string) == 17
+    assert len(invalid_int) == 1
+    assert len(invalid_object) == 3
+    assert len(invalid_array) == 9
+    assert len(invalid_number) == 4
+    assert len(invalid_length) == 3
+    assert len(missing_value) == 7
+    assert len(bad_match) == 1
 
-    assert len(errors.keys()) == 52, "Expecting total of 52 validation errors!"
+    assert len(errors.keys()) == 55
 
 
 def test_additional_fields():
