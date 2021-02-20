@@ -24,7 +24,7 @@ Other code (in ``lib``, etc.) should not be used by external users of this libra
    :target: https://pypi.org/project/libcoveoc4ids/
 .. |Build Status| image:: https://github.com/open-contracting/lib-cove-oc4ids/workflows/CI/badge.svg
 .. |Lint Status| image:: https://github.com/open-contracting/lib-cove-oc4ids/workflows/Lint/badge.svg
-.. |Coverage Status| image:: https://coveralls.io/repos/github/open-contracting/lib-cove-oc4ids/badge.svg?branch=master
-   :target: https://coveralls.io/github/open-contracting/lib-cove-oc4ids?branch=master
+.. |Coverage Status| image:: https://coveralls.io/repos/github/open-contracting/lib-cove-oc4ids/badge.svg?branch=main
+   :target: https://coveralls.io/github/open-contracting/lib-cove-oc4ids?branch=main
 .. |Python Version| image:: https://img.shields.io/pypi/pyversions/libcoveoc4ids.svg
    :target: https://pypi.org/project/libcoveoc4ids/
