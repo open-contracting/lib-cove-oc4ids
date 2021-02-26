@@ -33,5 +33,5 @@ jobs:
     - run: curl https://raw.githubusercontent.com/open-contracting/infrastructure/0.9-dev/docs/examples/example.json > example.json
     - run: libcoveoc4ids example.json
     - env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-      run: coveralls
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: coveralls --service=github
