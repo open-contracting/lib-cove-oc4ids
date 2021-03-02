@@ -14,7 +14,6 @@ setup(
     packages=find_packages(exclude=['tests', 'tests.*']),
     long_description=long_description,
     install_requires=[
-        'Django<2.3',
         'libcoveocds>=0.8.0',
         'libcove>=0.18.0',
     ],
