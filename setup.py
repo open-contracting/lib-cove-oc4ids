@@ -15,11 +15,8 @@ setup(
     long_description=long_description,
     install_requires=[
         'Django<2.3',
-        'flattentool',
         'libcoveocds>=0.8.0',
         'libcove>=0.18.0',
-        'rfc3987',
-        'strict-rfc3339',
     ],
     extras_require={
         'perf': [
