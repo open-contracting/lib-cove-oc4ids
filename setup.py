@@ -13,6 +13,7 @@ setup(
     license='AGPLv3',
     packages=find_packages(exclude=['tests', 'tests.*']),
     long_description=long_description,
+    long_description_content_type='text/x-rst',
     install_requires=[
         'libcoveocds>=0.8.0',
         'libcove>=0.18.0',
