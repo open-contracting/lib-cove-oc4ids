@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest]  # libcove doesn't support Windows https://github.com/OpenDataServices/lib-cove/issues/53
-        python-version: [3.6, 3.7, 3.8, 3.9, pypy-3.7]
+        python-version: [3.6, 3.7, 3.8, 3.9]  # pypy-3.7 is blocked https://github.com/open-contracting/lib-cove-ocds/issues/96
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
