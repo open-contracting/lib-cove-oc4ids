@@ -6,9 +6,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        # libcove doesn't support Windows.
-        # https://github.com/OpenDataServices/lib-cove/issues/53
-        os: [macos-latest, ubuntu-latest]
+        os: [macos-latest, ubuntu-latest]  # libcove doesn't support Windows https://github.com/OpenDataServices/lib-cove/issues/53
         python-version: [3.6, 3.7, 3.8, 3.9, pypy-3.7]
     steps:
       - uses: actions/checkout@v2
@@ -24,6 +22,8 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/setup.py') }}
           restore-keys: |
             ${{ runner.os }}-pip-
+      - if: matrix.python-version == 'pypy-3.7'
+        run: sudo apt install libxml2-dev libxslt-dev
       - run: pip install .[test]
       - name: Test
         run: |
