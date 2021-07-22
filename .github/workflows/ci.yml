@@ -25,12 +25,17 @@ jobs:
       - if: matrix.os == 'ubuntu-latest' && matrix.python-version == 'pypy-3.7'
         run: sudo apt install libxml2-dev libxslt-dev
       - run: pip install .[test]
-      - name: Test
+      # "orjson does not support PyPy" and fails to install. https://pypi.org/project/orjson/
+      - if: matrix.python-version != 'pypy-3.7'
+        name: Test
         run: |
           coverage run --append --source=libcoveoc4ids -m pytest
           pip install orjson
           coverage run --append --source=libcoveoc4ids -m pytest
           pip uninstall -y orjson
+      - if: matrix.python-version == 'pypy-3.7'
+        name: Test
+        run: pytest --cov ocdskit --vcr-record=none
       - run: curl https://raw.githubusercontent.com/open-contracting/infrastructure/0.9-dev/docs/examples/example.json > example.json
       - run: libcoveoc4ids example.json
       - env:
