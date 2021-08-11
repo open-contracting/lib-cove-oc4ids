@@ -25,6 +25,8 @@ jobs:
       - if: matrix.os == 'ubuntu-latest' && matrix.python-version == 'pypy-3.7'
         run: sudo apt install libxml2-dev libxslt-dev
       - run: pip install .[test]
+      # Run uninstall first, because we're installing the same version according to setup.py
+      - run: pip uninstall -y libcove && pip install git+https://github.com/OpenDataServices/lib-cove.git@cove-oc4ids-98-field-coverage-calculation#egg=libcove
       # "orjson does not support PyPy" and fails to install. https://pypi.org/project/orjson/
       - if: matrix.python-version != 'pypy-3.7'
         name: Test
