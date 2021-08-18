@@ -5,7 +5,7 @@ with open('README.rst') as f:
 
 setup(
     name='libcoveoc4ids',
-    version='0.3.2',
+    version='0.4.0',
     author='Open Data Services',
     author_email='data@open-contracting.org',
     url='https://github.com/open-contracting/lib-cove-oc4ids',
@@ -16,7 +16,7 @@ setup(
     long_description_content_type='text/x-rst',
     install_requires=[
         'libcoveocds>=0.8.0',
-        'libcove>=0.18.0',
+        'libcove>=0.25.0',
     ],
     extras_require={
         'perf': [
