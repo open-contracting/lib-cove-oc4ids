@@ -32,6 +32,7 @@ def test_validation_errors():
     missing_value = []
     invalid_length = []
     bad_match = []
+    no_properties = []
 
     for err in errors:
         if "Invalid code found in" in err:
@@ -67,6 +68,9 @@ def test_validation_errors():
         elif "does not match" in err:
             bad_match.append(err)
 
+        elif "does not have enough properties" in err:
+            no_properties.append(err)
+
         else:
             # We shouldn't reach here if we have sorted all the validation
             # errors
@@ -80,11 +84,12 @@ def test_validation_errors():
     assert len(invalid_object) == 3
     assert len(invalid_array) == 9
     assert len(invalid_number) == 4
-    assert len(invalid_length) == 3
+    assert len(invalid_length) == 5
     assert len(missing_value) == 7
     assert len(bad_match) == 1
+    assert len(no_properties) == 1
 
-    assert len(errors.keys()) == 55
+    assert len(errors.keys()) == 58
 
 
 def test_additional_fields():

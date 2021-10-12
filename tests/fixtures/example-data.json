@@ -78,8 +78,7 @@
             ]
           },
           "gazetteer": {
-            "scheme": "osm",
-            "identifiers": []
+            "scheme": "osm"
           },
           "address": {
             "streetAddress": "Windlesham Interchange, Old Road",
