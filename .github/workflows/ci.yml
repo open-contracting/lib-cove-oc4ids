@@ -22,7 +22,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
       - if: matrix.os == 'ubuntu-latest' && matrix.python-version == 'pypy-3.7'
-        run: sudo apt install libxml2-dev libxslt-dev
+        run: |
+          sudo apt update
+          sudo apt install libxml2-dev libxslt-dev
       - run: pip install .[test]
       - name: Test entry point
         run: |
