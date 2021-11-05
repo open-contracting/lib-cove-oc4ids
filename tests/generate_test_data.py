@@ -3,20 +3,14 @@ import argparse
 import copy
 import json
 import random
+import string
 
 
 def random_project_id():
-    alphanum = "abcdefghijklmnopqrstuvwxyz123456789"
-    random_range = (0, len(alphanum) - 1)
+    chars = string.ascii_lowercase + string.digits
+    code = ''.join(random.choice(chars) for _ in range(6))
 
-    return "oc4ids-{}{}{}{}{}{}-test".format(
-        alphanum[random.randint(*random_range)],
-        alphanum[random.randint(*random_range)],
-        alphanum[random.randint(*random_range)],
-        alphanum[random.randint(*random_range)],
-        alphanum[random.randint(*random_range)],
-        alphanum[random.randint(*random_range)],
-    )
+    return f"oc4ids-{code}-test"
 
 
 def generate_data(num_projects):
@@ -34,7 +28,7 @@ def generate_data(num_projects):
             data["projects"].append(project)
             i += 1
 
-        with open("example-generated-data-{}-projects.json".format(num_projects), "w") as out_fp:
+        with open(f"example-generated-data-{num_projects}-projects.json", "w") as out_fp:
             json.dump(data, out_fp)
 
 
