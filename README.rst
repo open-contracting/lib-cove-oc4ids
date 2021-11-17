@@ -1,7 +1,7 @@
 Lib Cove OC4IDS
 ===============
 
-|PyPI Version| |Build Status| |Lint Status| |Coverage Status| |Python Version|
+|PyPI Version| |Build Status| |Coverage Status| |Python Version|
 
 Command line
 ------------
@@ -23,7 +23,6 @@ Other code (in ``lib``, etc.) should not be used by external users of this libra
 .. |PyPI Version| image:: https://img.shields.io/pypi/v/libcoveoc4ids.svg
    :target: https://pypi.org/project/libcoveoc4ids/
 .. |Build Status| image:: https://github.com/open-contracting/lib-cove-oc4ids/workflows/CI/badge.svg
-.. |Lint Status| image:: https://github.com/open-contracting/lib-cove-oc4ids/workflows/Lint/badge.svg
 .. |Coverage Status| image:: https://coveralls.io/repos/github/open-contracting/lib-cove-oc4ids/badge.svg?branch=main
    :target: https://coveralls.io/github/open-contracting/lib-cove-oc4ids?branch=main
 .. |Python Version| image:: https://img.shields.io/pypi/pyversions/libcoveoc4ids.svg
