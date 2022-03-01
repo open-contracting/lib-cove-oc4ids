@@ -9,7 +9,7 @@ jobs:
         os: [macos-latest, ubuntu-latest]  # libcove doesn't support Windows https://github.com/OpenDataServices/lib-cove/issues/53
         python-version: [3.6, 3.7, 3.8, 3.9, '3.10', pypy-3.7]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
