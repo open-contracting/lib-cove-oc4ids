@@ -34,15 +34,13 @@ jobs:
       - if: matrix.python-version != 'pypy-3.7'
         name: Test
         run: |
-          env PYTHONWARNINGS=error coverage run --append --source=libcoveoc4ids -m pytest
+          coverage run --append --source=libcoveoc4ids -m pytest -W error
           pip install orjson
-          env PYTHONWARNINGS=error coverage run --append --source=libcoveoc4ids -m pytest
+          coverage run --append --source=libcoveoc4ids -m pytest -W error
           pip uninstall -y orjson
       - if: matrix.python-version == 'pypy-3.7'
         name: Test
-        env:
-          PYTHONWARNINGS: error
-        run: pytest --cov libcoveoc4ids
+        run: pytest -W error --cov libcoveoc4ids
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: coveralls --service=github
