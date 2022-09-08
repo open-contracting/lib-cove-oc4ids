@@ -69,7 +69,9 @@ class OrgReferencesExistCheck(AdditionalCheck):
     def extract_project_from_path(self, path):
         """ Matches /projects/<int> and returns the int portion """
 
-        return int(self.project_id_match.match(path).group()[len("/projects/"):])
+        match = self.project_id_match.match(path)
+        if match:
+            return int(match.group()[len("/projects/"):])
 
     def project_parties_ids(self, data, project):
         try:
