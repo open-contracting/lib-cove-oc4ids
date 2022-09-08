@@ -125,11 +125,11 @@ def test_additional_checks():
     """ Test the additional checks to make sure each expected one is present in test data"""
     errors, ctx = utils.test_fixture("example-additional-checks.json")
     checked = 0
-    expected_checks = 3
+    check_results = ctx["additional_checks"]
 
-    assert len(ctx["additional_checks"]) == expected_checks, "Additional checks are incomplete"
+    assert len(check_results) == 3, "Additional checks are incomplete"
 
-    for check_result in ctx["additional_checks"]:
+    for check_result in check_results:
         _validate_check_result_object(check_result)
 
         assert len(check_result["paths"]) > 0, "Check result has no paths"
@@ -141,8 +141,7 @@ def test_additional_checks():
         ]:
             checked += 1
 
-    assert(expected_checks == checked), \
-        "Checks tested not expected total for this test data %s" % ctx["additional_checks"]
+    assert checked == len(check_results), "Checks tested not expected total for this test data %s" % check_results
 
 
 def test_additional_checks_no_parties():
@@ -170,11 +169,11 @@ def test_conformance_tests():
     """ Test the additional checks to make sure each expected one is present in test data"""
     errors, ctx = utils.test_fixture("example-additional-checks.json")
     checked = 0
-    expected_checks = 1
+    check_results = ctx["conformance_checks"]
 
-    assert len(ctx["conformance_checks"]) == expected_checks, "Conformance checks are incomplete"
+    assert len(check_results) == 1, "Conformance checks are incomplete"
 
-    for check_result in ctx["conformance_checks"]:
+    for check_result in check_results:
         _validate_check_result_object(check_result)
         # Tests to make sure we have the right dictionary created
         assert "path_values" in check_result, "Check result has no path values"
@@ -186,5 +185,4 @@ def test_conformance_tests():
         ]:
             checked += 1
 
-    assert(expected_checks == checked), \
-        "Checks tested not expected total for this test data %s" % ctx["conformance_checks"]
+    assert checked == len(check_results), "Checks tested not expected total for this test data %s" % check_results
