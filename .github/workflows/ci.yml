@@ -6,8 +6,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest]  # libcove doesn't support Windows https://github.com/OpenDataServices/lib-cove/issues/53
+        os: [macos-latest, ubuntu-latest, windows-latest]
         python-version: [3.7, 3.8, 3.9, '3.10', '3.11', pypy-3.7]
+      exclude:
+        # https://www.lfd.uci.edu/~gohlke/pythonlibs/ has no permalinks (for libxml2).
+        - os: windows-latest
+          python-version: '3.11'
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
