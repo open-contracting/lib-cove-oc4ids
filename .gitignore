@@ -3,6 +3,7 @@
 /.idea
 /.pytest_cache
 /.ve
+/build
 /dist
 __pycache__
 *~
