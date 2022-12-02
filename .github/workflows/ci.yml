@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
-          cache-dependency-path: setup.py
+          cache-dependency-path: setup.cfg
       - if: matrix.os == 'ubuntu-latest' && matrix.python-version == 'pypy-3.7'
         run: |
           sudo apt update
