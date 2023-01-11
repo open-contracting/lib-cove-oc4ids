@@ -12,6 +12,11 @@ jobs:
           # https://www.lfd.uci.edu/~gohlke/pythonlibs/ has no permalinks (for libxml2).
           - os: windows-latest
             python-version: '3.11'
+          # https://github.com/OpenDataServices/flatten-tool/pull/418
+          - os: macos-latest
+            python-version: pypy-3.7
+          - os: windows-latest
+            python-version: pypy-3.7
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
