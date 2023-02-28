@@ -1,4 +1,4 @@
-class AdditionalCheck(object):
+class AdditionalCheck:
     def process(self, data, flat_data):
         """Should Return a dictionary of the output or True if check passed
 
