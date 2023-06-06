@@ -11,10 +11,8 @@ def test_cli_runs():
     # If non-zeo exit status this will raise CalledProcessError
     output = subprocess.check_output(['libcoveoc4ids', fixture_path])
 
-    # Decode to str from bytes for older python (3.5) which doesn't support
-    # byte input to loads.
     # output json should be parseable
-    json.loads(output.decode("utf-8"))
+    json.loads(output)
 
 
 def test_compact():
