@@ -29,7 +29,7 @@ def test_output(tmpdir):
     fixture_path = utils.get_path_for_fixture("example-data.json")
     output_path = tmpdir.join("result.json")
 
-    output = subprocess.check_output(['libcoveoc4ids', '--output', output_path, fixture_path])
+    output = subprocess.check_output(['libcoveoc4ids', '--output', str(output_path), fixture_path])
 
     with open(output_path) as f:
         json.load(f)
