@@ -40,6 +40,9 @@ jobs:
       - if: matrix.python-version != 'pypy-3.9'
         name: Test
         shell: bash
+        env:
+          PYTHONIOENCODING: utf-8
+          PYTHONUTF8: 1
         run: |
           coverage run --append --source=libcoveoc4ids -m pytest -W error
           pip install orjson
