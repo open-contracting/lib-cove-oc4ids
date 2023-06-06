@@ -29,6 +29,9 @@ jobs:
           sudo apt update
           sudo apt install libxml2-dev libxslt-dev
       - run: pip install .[test]
+      - if: matrix.python-version == 'pypy-3.9'
+        # https://github.com/django/asgiref/issues/393
+        run: pip install 'asgiref<3.7'
       - name: Test entry point
         run: |
           curl https://raw.githubusercontent.com/open-contracting/infrastructure/0.9-dev/docs/examples/example.json > example.json
