@@ -41,7 +41,6 @@ jobs:
         name: Test
         shell: bash
         env:
-          PYTHONIOENCODING: utf-8
           PYTHONUTF8: 1
         run: |
           coverage run --append --source=libcoveoc4ids -m pytest -W error
