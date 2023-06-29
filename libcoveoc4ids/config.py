@@ -1,8 +1,6 @@
-from collections import OrderedDict
-
 from libcove.config import LIB_COVE_CONFIG_DEFAULT, LibCoveConfig
 
-versions = OrderedDict()
+versions = {}
 
 # Available versions
 versions['0.9.3'] = ('0.9.3', 'http://standard.open-contracting.org/infrastructure/schema/0__9__3/')
@@ -21,10 +19,9 @@ LIB_COVE_OC4IDS_CONFIG_DEFAULT.update({
     'schema_version_choices': versions,
     'schema_host':
     'http://standard.open-contracting.org/infrastructure/schema/0__9__3/',
-    'schema_codelists': OrderedDict((
-        ("0.9",
-         "https://raw.githubusercontent.com/open-contracting/infrastructure/0.9/schema/project-level/codelists/"),
-    ))
+    'schema_codelists': {
+        "0.9": "https://raw.githubusercontent.com/open-contracting/infrastructure/0.9/schema/project-level/codelists/",
+    },
 })
 
 
