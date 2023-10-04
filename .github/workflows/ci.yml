@@ -7,16 +7,13 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        python-version: [3.7, 3.8, 3.9, '3.10', '3.11', pypy-3.9]
+        # lib-cove is a blocker for pypy-3.9.
+        # https://github.com/OpenDataServices/lib-cove/pull/121
+        python-version: [3.8, 3.9, '3.10', '3.11']
         exclude:
           # https://www.lfd.uci.edu/~gohlke/pythonlibs/ has no permalinks (for libxml2).
           - os: windows-latest
             python-version: '3.11'
-          # flattentool>0.20.1 https://github.com/OpenDataServices/flatten-tool/pull/418
-          - os: macos-latest
-            python-version: pypy-3.9
-          - os: windows-latest
-            python-version: pypy-3.9
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
@@ -27,7 +24,7 @@ jobs:
       - if: matrix.os == 'ubuntu-latest' && matrix.python-version == 'pypy-3.9'
         run: |
           sudo apt update
-          sudo apt install libgeos-dev libxml2-dev libxslt-dev
+          sudo apt install libxml2-dev libxslt-dev libgeos-dev
       - run: pip install .[test]
       - if: matrix.python-version == 'pypy-3.9'
         # https://github.com/django/asgiref/issues/393
@@ -36,20 +33,8 @@ jobs:
         run: |
           curl https://raw.githubusercontent.com/open-contracting/infrastructure/0.9-dev/docs/examples/example.json > example.json
           libcoveoc4ids example.json
-      # "orjson does not support PyPy" and fails to install. https://pypi.org/project/orjson/
-      - if: matrix.python-version != 'pypy-3.9'
-        name: Test
-        shell: bash
-        env:
-          PYTHONUTF8: 1
-        run: |
-          coverage run --append --source=libcoveoc4ids -m pytest -W error
-          pip install orjson
-          coverage run --append --source=libcoveoc4ids -m pytest -W error
-          pip uninstall -y orjson
-      - if: matrix.python-version == 'pypy-3.9'
-        name: Test
-        run: pytest -W error --cov libcoveoc4ids
+      # https://github.com/OpenDataServices/lib-cove/issues/112
+      - run: pytest -W error -W ignore::DeprecationWarning:libcove.lib.common --cov libcoveoc4ids
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: coveralls --service=github

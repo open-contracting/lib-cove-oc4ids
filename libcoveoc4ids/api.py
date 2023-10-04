@@ -1,5 +1,3 @@
-import json
-
 from libcove.lib.tools import get_file_type
 
 from libcoveoc4ids.common_checks import common_checks_oc4ids
@@ -7,13 +5,9 @@ from libcoveoc4ids.config import LibCoveOC4IDSConfig
 from libcoveoc4ids.schema import SchemaOC4IDS
 
 try:
-    import orjson
-
-    jsonlib = orjson
-    using_orjson = True
+    import orjson as json
 except ImportError:
-    jsonlib = json
-    using_orjson = False
+    import json  # noqa: F401
 
 
 class APIException(Exception):
@@ -32,16 +26,9 @@ def oc4ids_json_output(output_dir, file, file_type=None, json_data=None,
 
     if file_type == 'json':
         if not json_data:
-            if using_orjson:
-                kwargs = {'mode': 'rb'}
-            else:
-                kwargs = {'encoding': 'utf-8'}
-            with open(file, **kwargs) as fp:
+            with open(file, "rb") as fp:
                 try:
-                    if using_orjson:
-                        json_data = jsonlib.loads(fp.read())
-                    else:
-                        json_data = jsonlib.load(fp)
+                    json_data = json.loads(fp.read())
                 except ValueError:
                     raise APIException('The file looks like invalid json')
 
