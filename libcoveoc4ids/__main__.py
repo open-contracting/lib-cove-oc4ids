@@ -1,8 +1,9 @@
 import argparse
+import json
 import shutil
 import tempfile
 
-from libcoveoc4ids.api import jsonlib, oc4ids_json_output, using_orjson
+from libcoveoc4ids.api import oc4ids_json_output
 
 
 def main():
@@ -25,31 +26,17 @@ def main():
         shutil.rmtree(cove_temp_folder)
 
     kwargs = {}
-
-    if using_orjson:
-        kwargs['option'] = 0
-        if not args.compact:
-            kwargs['option'] |= jsonlib.OPT_INDENT_2
-        if args.output:
-            kwargs['option'] |= jsonlib.OPT_APPEND_NEWLINE
-
-        output = jsonlib.dumps(result, **kwargs)
-        if args.output:
-            with open(args.output, 'wb') as f:
-                f.write(output)
-        else:
-            print(output.decode())
+    if args.compact:
+        kwargs['separators'] = (',', ':')
     else:
-        if args.compact:
-            kwargs['separators'] = (',', ':')
-        else:
-            kwargs['indent'] = 2
+        kwargs['indent'] = 2
 
-        if args.output:
-            with open(args.output, 'w') as f:
-                jsonlib.dump(result, f, **kwargs)
-        else:
-            print(jsonlib.dumps(result, **kwargs))
+    if args.output:
+        with open(args.output, 'w') as f:
+            json.dump(result, f, **kwargs)
+            f.write('\n')
+    else:
+        print(json.dumps(result, **kwargs))
 
 
 if __name__ == '__main__':
