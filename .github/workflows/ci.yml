@@ -9,7 +9,7 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
         # lib-cove is a blocker for pypy-3.9.
         # https://github.com/OpenDataServices/lib-cove/pull/121
-        python-version: [3.8, 3.9, '3.10', '3.11']
+        python-version: [3.8, 3.9, '3.10', '3.11', '3.12']
         exclude:
           # https://www.lfd.uci.edu/~gohlke/pythonlibs/ has no permalinks (for libxml2).
           - os: windows-latest
