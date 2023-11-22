@@ -7,13 +7,13 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        # lib-cove is a blocker for 3.12 and pypy-3.9.
-        # https://github.com/OpenDataServices/lib-cove/pull/121
-        python-version: [3.8, 3.9, '3.10', '3.11']
+        python-version: [3.8, 3.9, '3.10', '3.11', '3.12', 'pypy-3.9']
         exclude:
           # https://www.lfd.uci.edu/~gohlke/pythonlibs/ has no permalinks (for libxml2).
           - os: windows-latest
-            python-version: '3.11'
+            python-version: '3.12'
+          - os: windows-latest
+            python-version: 'pypy-3.9'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
@@ -33,8 +33,7 @@ jobs:
         run: |
           curl https://raw.githubusercontent.com/open-contracting/infrastructure/0.9-dev/docs/examples/example.json > example.json
           libcoveoc4ids example.json
-      # https://github.com/OpenDataServices/lib-cove/issues/112
-      - run: pytest -W error -W ignore::DeprecationWarning:libcove.lib.common --cov libcoveoc4ids
+      - run: pytest -W error --cov libcoveoc4ids
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: coveralls --service=github
