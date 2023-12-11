@@ -29,7 +29,7 @@
           "currency": "upmceageaqwjjg"
         },
         "approvalDate": "",
-        "budgetBreakdown": "xxrzeqvnbcxxrzeqvnbcxxrzeqvnbc"
+        "budgetBreakdowns": "xxrzeqvnbcxxrzeqvnbcxxrzeqvnbc"
       },
       "parties": 4,
       "documents": "xxrzeqvnbc",
@@ -215,7 +215,7 @@
         },
         "requestDate": "2015-05-30T00:00:00Z",
         "approvalDate": "2015-06-24T00:00:00Z",
-        "budgetBreakdown": [
+        "budgetBreakdowns": [
           {
             "id": "1",
             "description": "2016 budget allocation",
