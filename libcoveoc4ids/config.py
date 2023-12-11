@@ -3,7 +3,7 @@ from libcove.config import LIB_COVE_CONFIG_DEFAULT, LibCoveConfig
 versions = {}
 
 # Available versions
-versions['0.9.3'] = ('0.9.3', 'http://standard.open-contracting.org/infrastructure/schema/0__9__3/')
+versions['0.9.4'] = ('0.9.4', 'http://standard.open-contracting.org/infrastructure/schema/0__9__4/')
 
 LIB_COVE_OC4IDS_CONFIG_DEFAULT = LIB_COVE_CONFIG_DEFAULT.copy()
 
@@ -15,10 +15,10 @@ LIB_COVE_OC4IDS_CONFIG_DEFAULT.update({
     'convert_titles': False,
     'schema_name': 'project-package-schema.json',
     'schema_item_name': 'project-schema.json',
-    'schema_version': '0.9.3',
+    'schema_version': '0.9.4',
     'schema_version_choices': versions,
     'schema_host':
-    'http://standard.open-contracting.org/infrastructure/schema/0__9__3/',
+    'http://standard.open-contracting.org/infrastructure/schema/0__9__4/',
     'schema_codelists': {
         "0.9": "https://raw.githubusercontent.com/open-contracting/infrastructure/0.9/schema/project-level/codelists/",
     },
