@@ -7,7 +7,8 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        python-version: [3.8, 3.9, '3.10', '3.11', '3.12', 'pypy-3.9']
+        # https://foss.heptapod.net/pypy/pypy/-/issues/4010
+        python-version: [3.8, 3.9, '3.10', '3.11', '3.12'] # pypy-3.9
         exclude:
           # https://www.lfd.uci.edu/~gohlke/pythonlibs/ has no permalinks (for libxml2).
           - os: windows-latest
