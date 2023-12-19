@@ -76,7 +76,9 @@ def test_validation_errors():
             # errors
             assert False, "Validation error '%s' not captured" % err
 
-    assert len(invalid_code) == 5
+    assert len(ctx["additional_closed_codelist_values"]) == 5
+
+    assert len(invalid_code) == 0
     assert len(invalid_uri) == 1
     assert len(invalid_date) == 4
     assert len(invalid_string) == 17
@@ -89,7 +91,7 @@ def test_validation_errors():
     assert len(bad_match) == 1
     assert len(no_properties) == 1
 
-    assert len(errors.keys()) == 58
+    assert len(errors.keys()) == 53
 
 
 def test_additional_fields():
