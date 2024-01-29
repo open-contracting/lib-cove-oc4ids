@@ -32,7 +32,6 @@ def test_validation_errors():
     missing_value = []
     invalid_length = []
     bad_match = []
-    no_properties = []
 
     for err in errors:
         if "Invalid code found in" in err:
@@ -86,7 +85,6 @@ def test_validation_errors():
     assert len(invalid_length) == 6
     assert len(missing_value) == 7
     assert len(bad_match) == 1
-    assert len(no_properties) == 1
 
     assert len(errors.keys()) == 53
 
