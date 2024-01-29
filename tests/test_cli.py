@@ -2,6 +2,8 @@ import json
 import platform
 import subprocess
 
+import pytest
+
 import tests.utils as utils
 
 
