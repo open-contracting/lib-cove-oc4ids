@@ -1,4 +1,5 @@
 import json
+import platform
 import subprocess
 
 import tests.utils as utils
@@ -23,6 +24,11 @@ def test_compact():
     assert output[:21] == b'{"file_type":"json","'
 
 
+# https://github.com/pypy/pypy/issues/4009
+@pytest.mark.skipif(
+    platform.system() == "Darwin" and platform.python_implementation() == "PyPy",
+    reason="CI outputs .../lib/pypy3.9/site-packages/certifi/cacert.pem None",
+)
 def test_output(tmpdir):
     fixture_path = utils.get_path_for_fixture("example-data.json")
     output_path = tmpdir.join("result.json")
