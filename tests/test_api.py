@@ -59,7 +59,7 @@ def test_validation_errors():
         elif "is not a number" in err:
             invalid_number.append(err)
 
-        elif "is too short" in err:
+        elif "is too short" in err or "should be non-empty":
             invalid_length.append(err)
 
         elif "is missing but required" in err:
