@@ -59,7 +59,7 @@ def test_validation_errors():
         elif "is not a number" in err:
             invalid_number.append(err)
 
-        elif "is too short" in err or "should be non-empty" in err:
+        elif "is too short" in err or "does not have enough properties" in err or "should be non-empty" in err:
             invalid_length.append(err)
 
         elif "is missing but required" in err:
@@ -67,9 +67,6 @@ def test_validation_errors():
 
         elif "does not match" in err:
             bad_match.append(err)
-
-        elif "does not have enough properties" in err:
-            no_properties.append(err)
 
         else:
             # We shouldn't reach here if we have sorted all the validation
@@ -86,7 +83,7 @@ def test_validation_errors():
     assert len(invalid_object) == 3
     assert len(invalid_array) == 9
     assert len(invalid_number) == 4
-    assert len(invalid_length) == 5
+    assert len(invalid_length) == 6
     assert len(missing_value) == 7
     assert len(bad_match) == 1
     assert len(no_properties) == 1
