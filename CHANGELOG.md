@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Changed
+
+- Add `flatten_tool` configuration option.
+
+### Fixed
+
+- Change the `root_id` configuration option from `"main"` to `"id"`.
+
+### Removed
+
+- Unused `lib_cove_oc4ids_config` argument from `common_checks_oc4ids()` in `libcoveoc4ids.common_checks`
+- Unneeded `cache` argument from `oc4ids_json_output()` in `libcoveoc4ids.api`
+- `root_is_list` configuration option
+- `APIException` class in `libcoveoc4ids.api`
+
 ## 0.5.0 (2023-12-19)
 
 ### Changed

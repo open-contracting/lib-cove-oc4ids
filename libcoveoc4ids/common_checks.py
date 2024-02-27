@@ -7,11 +7,8 @@ from libcoveoc4ids.config import LibCoveOC4IDSConfig
 from libcoveoc4ids.conformance_checks import conformance_checks
 
 
-def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, lib_cove_oc4ids_config=None, cache=True):
+def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, cache=True):
     additional_checks_results = []
-
-    if not lib_cove_oc4ids_config:
-        lib_cove_oc4ids_config = LibCoveOC4IDSConfig()
 
     # Common schema checks
     common_checks = common_checks_context(upload_dir, json_data, schema_obj,

@@ -1,33 +1,32 @@
-from libcove.config import LIB_COVE_CONFIG_DEFAULT, LibCoveConfig
+import copy
 
-versions = {}
-
-# Available versions
-versions['0.9.4'] = ('0.9.4', 'http://standard.open-contracting.org/infrastructure/schema/0__9__4/')
-
-LIB_COVE_OC4IDS_CONFIG_DEFAULT = LIB_COVE_CONFIG_DEFAULT.copy()
-
-LIB_COVE_OC4IDS_CONFIG_DEFAULT.update({
-    # These default values are very wide on purpose.
-    # It is left to apps using this to tighten them up.
-    'root_list_path': 'projects',
-    'root_is_list': False,
-    'convert_titles': False,
-    'schema_name': 'project-package-schema.json',
-    'schema_item_name': 'project-schema.json',
-    'schema_version': '0.9.4',
-    'schema_version_choices': versions,
-    'schema_host':
-    'http://standard.open-contracting.org/infrastructure/schema/0__9__4/',
-    'schema_codelists': {
+LIB_COVE_OC4IDS_CONFIG_DEFAULT = {
+    "schema_name": "project-package-schema.json",
+    "schema_item_name": "project-schema.json",
+    "schema_version": "0.9.4",
+    "schema_version_choices": {
+        "0.9.4": ("0.9.4", "http://standard.open-contracting.org/infrastructure/schema/0__9__4/"),
+    },
+    "schema_host": "http://standard.open-contracting.org/infrastructure/schema/0__9__4/",
+    "schema_codelists": {
+        # version: codelist_dir,
         "0.9": "https://raw.githubusercontent.com/open-contracting/infrastructure/0.9/schema/project-level/codelists/",
     },
-})
+    #
+    # Flatten Tool options
+    #
+    "root_list_path": "projects",
+    "root_id": "id",
+    "convert_titles": False,
+    "flatten_tool": {
+        "disable_local_refs": True,
+        "remove_empty_schema_columns": True,
+    },
+}
 
 
-class LibCoveOC4IDSConfig(LibCoveConfig):
+class LibCoveOC4IDSConfig:
     def __init__(self, config=None):
-
-        self.config = LIB_COVE_OC4IDS_CONFIG_DEFAULT.copy()
+        self.config = copy.deepcopy(LIB_COVE_OC4IDS_CONFIG_DEFAULT)
         if config:
             self.config.update(config)
