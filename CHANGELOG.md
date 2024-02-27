@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
+- Don't error if the project's `id` is not a string, in the organization reference additional check.
 - Change the `root_id` configuration option from `"main"` to `"id"`.
 
 ### Removed

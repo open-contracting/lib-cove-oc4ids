@@ -2,30 +2,16 @@ from libcove.lib.common import common_checks_context, get_additional_codelist_va
 from libcoveocds.lib.additional_checks import flatten_dict
 from libcoveocds.lib.common_checks import get_releases_aggregates
 
-from libcoveoc4ids.additional_checks import additional_checks
-from libcoveoc4ids.conformance_checks import conformance_checks
+from libcoveoc4ids.additional_checks import ADDITIONAL_CHECKS, CONFORMANCE_CHECKS
 
 
 def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, cache=True):
     common_checks = common_checks_context(upload_dir, json_data, schema_obj, "schema.json", context, cache=cache)
     context.update(common_checks["context"])
-    flattened_data = dict(flatten_dict(json_data))
 
-    conformance_checks_results = []
-    for conformance_check in conformance_checks:
-        check_result = conformance_check.process(json_data, flattened_data)
-        if check_result is True:
-            continue
-        conformance_checks_results.append(check_result)
-    context.update({"conformance_checks": conformance_checks_results})
-
-    additional_checks_results = []
-    for additional_check in additional_checks:
-        check_result = additional_check.process(json_data, flattened_data)
-        if check_result is True:
-            continue
-        additional_checks_results.append(check_result)
-    context.update({"additional_checks": additional_checks_results})
+    flat = dict(flatten_dict(json_data))
+    context["conformance_checks"] = [result for function in CONFORMANCE_CHECKS for result in function(json_data, flat)]
+    context["additional_checks"] = [result for function in ADDITIONAL_CHECKS for result in function(json_data, flat)]
 
     validation_errors = common_checks["context"]["validation_errors"]
     additional_codelist_values = get_additional_codelist_values(schema_obj, json_data)

@@ -13,6 +13,10 @@ LIB_COVE_OC4IDS_CONFIG_DEFAULT = {
         "0.9": "https://raw.githubusercontent.com/open-contracting/infrastructure/0.9/schema/project-level/codelists/",
     },
     #
+    # lib-cove options
+    #
+    "cache_all_requests": False,
+    #
     # Flatten Tool options
     #
     "root_list_path": "projects",

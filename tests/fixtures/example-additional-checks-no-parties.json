@@ -98,54 +98,58 @@
         },
         "requestDate": "2015-05-30T00:00:00Z",
         "approvalDate": "2015-06-24T00:00:00Z",
-        "budgetBreakdown": [
+        "budgetBreakdowns": [
           {
-            "id": "1",
-            "description": "2016 budget allocation",
-            "amount": {
-              "amount": 10000000,
-              "currency": "GBP"
-            },
-            "period": {
-              "startDate": "2016-01-01T00:00:00Z",
-              "endDate": "2016-12-31T00:00:00Z"
-            },
-            "sourceParty": {
-              "name": "Motorways UK",
-              "id": "GB-GOR-XX12347"
-            }
-          },
-          {
-            "id": "2",
-            "description": "2017 budget allocation",
-            "amount": {
-              "amount": 20000000,
-              "currency": "GBP"
-            },
-            "period": {
-              "startDate": "2017-01-01T00:00:00Z",
-              "endDate": "2017-12-31T00:00:00Z"
-            },
-            "sourceParty": {
-              "name": "Motorways UK",
-              "id": "GB-GOR-XX12346"
-            }
-          },
-          {
-            "id": "3",
-            "description": "2018 budget allocation",
-            "amount": {
-              "amount": 10000000,
-              "currency": "GBP"
-            },
-            "period": {
-              "startDate": "2018-01-01T00:00:00Z",
-              "endDate": "2018-12-31T00:00:00Z"
-            },
-            "sourceParty": {
-              "name": "Motorways UK",
-              "id": "GB-GOR-XX12345"
-            }
+            "budgetBreakdown": [
+              {
+                "id": "1",
+                "description": "2016 budget allocation",
+                "amount": {
+                  "amount": 10000000,
+                  "currency": "GBP"
+                },
+                "period": {
+                  "startDate": "2016-01-01T00:00:00Z",
+                  "endDate": "2016-12-31T00:00:00Z"
+                },
+                "sourceParty": {
+                  "name": "Motorways UK",
+                  "id": "GB-GOR-XX12347"
+                }
+              },
+              {
+                "id": "2",
+                "description": "2017 budget allocation",
+                "amount": {
+                  "amount": 20000000,
+                  "currency": "GBP"
+                },
+                "period": {
+                  "startDate": "2017-01-01T00:00:00Z",
+                  "endDate": "2017-12-31T00:00:00Z"
+                },
+                "sourceParty": {
+                  "name": "Motorways UK",
+                  "id": "GB-GOR-XX12346"
+                }
+              },
+              {
+                "id": "3",
+                "description": "2018 budget allocation",
+                "amount": {
+                  "amount": 10000000,
+                  "currency": "GBP"
+                },
+                "period": {
+                  "startDate": "2018-01-01T00:00:00Z",
+                  "endDate": "2018-12-31T00:00:00Z"
+                },
+                "sourceParty": {
+                  "name": "Motorways UK",
+                  "id": "GB-GOR-XX12345"
+                }
+              }
+            ]
           }
         ]
       },
