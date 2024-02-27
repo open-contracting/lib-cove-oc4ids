@@ -1,12 +1,8 @@
 import gettext
 import re
 
-from libcoveoc4ids.check_classes import AdditionalCheck
 
-_ = gettext.gettext
-
-
-class CurrencyCheck(AdditionalCheck):
+class CurrencyCheck:
     def process(self, data, flat_data):
         amount_path = re.compile(".*amount$")
 
@@ -24,15 +20,17 @@ class CurrencyCheck(AdditionalCheck):
         if len(missing) == 0:
             return True
 
-        return self.result(
-            "missing-currency",
-            _("There are %(count)d values without a currency. Currencies should be published for all values.")
+        return {
+            "check_id": "missing-currency",
+            "message": gettext.gettext(
+                "There are %(count)d values without a currency. Currencies should be published for all values."
+            )
             % {"count": len(missing)},
-            missing,
-        )
+            "paths": missing,
+        }
 
 
-class EmptyValueCheck(AdditionalCheck):
+class EmptyValueCheck:
     def process(self, data, flat_data):
         missing = []
 
@@ -48,18 +46,18 @@ class EmptyValueCheck(AdditionalCheck):
         if len(missing) == 0:
             return True
 
-        return self.result(
-            "missing-values",
-            _(
+        return {
+            "check_id": "missing-values",
+            "message": gettext.gettext(
                 "The data includes fields that are empty or contain only whitespaces. "
                 "Fields that are not being used, or that have no value, "
                 "should be excluded in their entirety (key and value) from the data"
             ),
-            missing,
-        )
+            "paths": missing,
+        }
 
 
-class OrgReferencesExistCheck(AdditionalCheck):
+class OrgReferencesExistCheck:
     project_id_match = re.compile(r"^/projects/\d+")
 
     def __init__(self, *args, **kwargs):
@@ -104,20 +102,19 @@ class OrgReferencesExistCheck(AdditionalCheck):
         if len(missing_references_paths) == 0:
             return True
 
-        return self.result(
-            "missing-org-refs",
-            _(
+        return {
+            "check_id": "missing-org-refs",
+            "message": gettext.gettext(
                 "There are %(count)d organization references with an id that does not match the id of any parties. "
                 "All organization references should have an associated entry in the parties array with a matching id."
             )
             % {"count": len(missing_references_paths)},
-            missing_references_paths,
-        )
+            "paths": missing_references_paths,
+        }
 
 
-def additional_checks():
-    return [
-        EmptyValueCheck(),
-        CurrencyCheck(),
-        OrgReferencesExistCheck(),
-    ]
+additional_checks = [
+    EmptyValueCheck(),
+    CurrencyCheck(),
+    OrgReferencesExistCheck(),
+]

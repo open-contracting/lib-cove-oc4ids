@@ -1,14 +1,9 @@
 import gettext
 import re
 
-from libcoveoc4ids.check_classes import ConformanceCheck
 
-_ = gettext.gettext
-
-
-class ProjectPrefixCheck(ConformanceCheck):
+class ProjectPrefixCheck:
     def process(self, data, flat_data):
-
         # matches /projects/10/id
         project_path = re.compile(r".*\/projects\/[0-9]+\/id$")
         # matches oc4ids-abc123-anything
@@ -26,18 +21,15 @@ class ProjectPrefixCheck(ConformanceCheck):
         if len(invalid_project_id_paths) == 0:
             return True
 
-        return self.result(
-            "invalid-project-ids",
-            _(
+        return {
+            "check_id": "invalid-project-ids",
+            "message": gettext.gettext(
                 "%(count)d of your project id fields has a problem: "
                 "There is no prefix or the prefix format is not recognised."
             )
             % {"count": len(invalid_project_id_paths)},
-            invalid_project_id_paths,
-        )
+            "path_values": invalid_project_id_paths,
+        }
 
 
-def conformance_checks():
-    return [
-        ProjectPrefixCheck(),
-    ]
+conformance_checks = [ProjectPrefixCheck()]
