@@ -8,7 +8,7 @@ import string
 
 def random_project_id():
     chars = string.ascii_lowercase + string.digits
-    code = ''.join(random.choice(chars) for _ in range(6))
+    code = "".join(random.choice(chars) for _ in range(6))
 
     return f"oc4ids-{code}-test"
 

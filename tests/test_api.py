@@ -3,21 +3,21 @@ from libcoveoc4ids.api import APIException
 
 
 def test_valid_data():
-    """" Test valid data should have no errors """
+    """ " Test valid data should have no errors"""
     errors, ctx = utils.test_fixture("example-data.json")
 
     assert len(errors.keys()) == 0, "Validation errors found"
 
 
 def test_invalid_data():
-    """ Test valid data but with no useful fields """
+    """Test valid data but with no useful fields"""
     errors, ctx = utils.test_fixture("rubbish.json")
 
     assert len(errors.keys()) == 5, "Expecting 5 validation errors"
 
 
 def test_validation_errors():
-    """ Check that the validation errors are the ones we are expecting """
+    """Check that the validation errors are the ones we are expecting"""
     errors, ctx = utils.test_fixture("validation-errors-package.json")
 
     invalid_code = []
@@ -90,15 +90,15 @@ def test_validation_errors():
 
 
 def test_additional_fields():
-    """ Test that the additional fields have been parsed """
+    """Test that the additional fields have been parsed"""
     errors, ctx = utils.test_fixture("rubbish.json")
 
-    assert ctx['additional_fields_count'] == 2, "Expecting two additional fields"
+    assert ctx["additional_fields_count"] == 2, "Expecting two additional fields"
     print(ctx)
 
 
 def test_invalid_json():
-    """ Should cause an exception on broken json file """
+    """Should cause an exception on broken json file"""
     try:
         errors, ctx = utils.test_fixture("invalid-json.json")
     except APIException:
@@ -108,7 +108,7 @@ def test_invalid_json():
 
 
 def _validate_check_result_object(check_result):
-    """ Check the common attributes of the result object """
+    """Check the common attributes of the result object"""
 
     # Tests to make sure we have the right dictionary created
     assert "check_id" in check_result, "Check result has no check_id field"
@@ -119,7 +119,7 @@ def _validate_check_result_object(check_result):
 
 
 def test_additional_checks():
-    """ Test the additional checks to make sure each expected one is present in test data"""
+    """Test the additional checks to make sure each expected one is present in test data"""
     errors, ctx = utils.test_fixture("example-additional-checks.json")
     checked = 0
     check_results = ctx["additional_checks"]
@@ -131,24 +131,21 @@ def test_additional_checks():
 
         assert len(check_result["paths"]) > 0, "Check result has no paths"
 
-        if check_result["check_id"] in [
-            "missing-currency",
-            "missing-values",
-            "missing-org-refs"
-        ]:
+        if check_result["check_id"] in ["missing-currency", "missing-values", "missing-org-refs"]:
             checked += 1
 
     assert checked == len(check_results), "Checks tested not expected total for this test data %s" % check_results
 
 
 def test_additional_checks_no_parties():
-    """ Extra check on missing-org-refs by removing all the parties definitions and thus"""
+    """Extra check on missing-org-refs by removing all the parties definitions and thus"""
     """ triggering for every possible path"""
 
     errors, ctx = utils.test_fixture("example-additional-checks-no-parties.json")
 
-    assert len(ctx["additional_checks"][0]["paths"]) == 15, "The number of paths where organisation refs"\
-        " are missing is not correct"
+    assert len(ctx["additional_checks"][0]["paths"]) == 15, (
+        "The number of paths where organisation refs" " are missing is not correct"
+    )
 
 
 def test_codelist_checks():
@@ -156,14 +153,16 @@ def test_codelist_checks():
 
     assert ctx["additional_open_codelist_values"]["projects/sector"]["values"][0] == "extraSector"
     assert ctx["additional_open_codelist_values"]["projects/parties/roles"]["values"][0] == "extraRole"
-    assert ctx["additional_open_codelist_values"]["projects/documents/documentType"]["values"][0] == \
-        "x_consultationResponses"
+    assert (
+        ctx["additional_open_codelist_values"]["projects/documents/documentType"]["values"][0]
+        == "x_consultationResponses"
+    )
 
     assert ctx["additional_closed_codelist_values"]["projects/budget/amount/currency"]["values"][0] == "X_GBP"
 
 
 def test_conformance_tests():
-    """ Test the additional checks to make sure each expected one is present in test data"""
+    """Test the additional checks to make sure each expected one is present in test data"""
     errors, ctx = utils.test_fixture("example-additional-checks.json")
     checked = 0
     check_results = ctx["conformance_checks"]
@@ -177,9 +176,7 @@ def test_conformance_tests():
 
         assert len(check_result["path_values"]) > 0, "Check result has no path values"
 
-        if check_result["check_id"] in [
-            "invalid-project-ids"
-        ]:
+        if check_result["check_id"] in ["invalid-project-ids"]:
             checked += 1
 
     assert checked == len(check_results), "Checks tested not expected total for this test data %s" % check_results

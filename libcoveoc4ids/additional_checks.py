@@ -26,9 +26,7 @@ class CurrencyCheck(AdditionalCheck):
 
         return self.result(
             "missing-currency",
-            _(
-                "There are %(count)d values without a currency. Currencies should be published for all values."
-            )
+            _("There are %(count)d values without a currency. Currencies should be published for all values.")
             % {"count": len(missing)},
             missing,
         )
@@ -52,9 +50,11 @@ class EmptyValueCheck(AdditionalCheck):
 
         return self.result(
             "missing-values",
-            _("The data includes fields that are empty or contain only whitespaces. "
+            _(
+                "The data includes fields that are empty or contain only whitespaces. "
                 "Fields that are not being used, or that have no value, "
-                "should be excluded in their entirety (key and value) from the data"),
+                "should be excluded in their entirety (key and value) from the data"
+            ),
             missing,
         )
 
@@ -67,11 +67,11 @@ class OrgReferencesExistCheck(AdditionalCheck):
         self._cached_project_parties_ids = {}
 
     def extract_project_from_path(self, path):
-        """ Matches /projects/<int> and returns the int portion """
+        """Matches /projects/<int> and returns the int portion"""
 
         match = self.project_id_match.match(path)
         if match:
-            return int(match.group()[len("/projects/"):])
+            return int(match.group()[len("/projects/") :])
 
     def project_parties_ids(self, data, project):
         try:

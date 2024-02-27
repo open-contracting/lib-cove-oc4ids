@@ -17,4 +17,4 @@ class ConformanceCheck(AdditionalCheck):
         path_values is expected to be a list of { "path": path, "value": value }
         Where path is /the/path/in/the/data and value is the erroneous value from the data
         """
-        return {"check_id": check_id, "message":  message, "path_values": path_values}
+        return {"check_id": check_id, "message": message, "path_values": path_values}

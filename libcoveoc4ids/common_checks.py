@@ -11,8 +11,7 @@ def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, cache=True)
     additional_checks_results = []
 
     # Common schema checks
-    common_checks = common_checks_context(upload_dir, json_data, schema_obj,
-                                          'schema.json', context, cache=cache)
+    common_checks = common_checks_context(upload_dir, json_data, schema_obj, "schema.json", context, cache=cache)
 
     context.update(common_checks["context"])
 
@@ -51,9 +50,7 @@ def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, cache=True)
     validation_errors = common_checks["context"]["validation_errors"]
 
     additional_codelist_values = get_additional_codelist_values(schema_obj, json_data)
-    closed_codelist_values = {
-        key: value for key, value in additional_codelist_values.items() if not value["isopen"]
-    }
+    closed_codelist_values = {key: value for key, value in additional_codelist_values.items() if not value["isopen"]}
     open_codelist_values = {key: value for key, value in additional_codelist_values.items() if value["isopen"]}
 
     context.update(
