@@ -17,8 +17,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Removed
 
-- Unused `lib_cove_oc4ids_config` argument from `common_checks_oc4ids()` in `libcoveoc4ids.common_checks`
-- Unneeded `cache` argument from `oc4ids_json_output()` in `libcoveoc4ids.api`
+- `--compact` and `--output` CLI options
+- `lib_cove_oc4ids_config` argument from `common_checks_oc4ids()` in `libcoveoc4ids.common_checks`
+- `cache` argument from `oc4ids_json_output()` in `libcoveoc4ids.api`
 - `root_is_list` configuration option
 - `APIException` class in `libcoveoc4ids.api`
 

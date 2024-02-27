@@ -1,13 +1,9 @@
 from libcove.lib.tools import get_file_type
+from libcoveocds.util import json
 
 from libcoveoc4ids.common_checks import common_checks_oc4ids
 from libcoveoc4ids.config import LibCoveOC4IDSConfig
 from libcoveoc4ids.schema import SchemaOC4IDS
-
-try:
-    import orjson as json
-except ImportError:
-    import json  # noqa: F401
 
 
 def oc4ids_json_output(
