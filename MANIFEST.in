@@ -2,3 +2,5 @@ include *.md
 include LICENSE
 recursive-include tests *.json
 recursive-include tests *.py
+exclude .git-blame-ignore-revs
+exclude .pre-commit-config.yaml

@@ -3,7 +3,6 @@ from libcoveocds.lib.additional_checks import flatten_dict
 from libcoveocds.lib.common_checks import get_releases_aggregates
 
 from libcoveoc4ids.additional_checks import additional_checks
-from libcoveoc4ids.config import LibCoveOC4IDSConfig
 from libcoveoc4ids.conformance_checks import conformance_checks
 
 

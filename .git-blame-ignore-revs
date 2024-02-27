@@ -1,0 +1,4 @@
+# Example: git blame --ignore-revs-file .git-blame-ignore-revs file
+
+# Migrate code style to Black
+9aff9f68c3695cd9d2fd901a06e23c172cf942f5
