@@ -14,6 +14,7 @@ def random_project_id():
 
 
 def generate_data(num_projects):
+
     with open("fixtures/example-additional-checks.json") as fp:
         data = json.load(fp)
 
