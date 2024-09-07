@@ -45,7 +45,9 @@ def empty_value(data, flat):
 
 def currency(data, flat):
     missing = [
-        path[:-6] for path in flat if path.endswith("amount") and f"{path[:-6]}currency" not in flat  # len("amount")
+        path[:-6]  # len("amount")
+        for path in flat
+        if path.endswith("amount") and f"{path[:-6]}currency" not in flat
     ]
 
     if missing:

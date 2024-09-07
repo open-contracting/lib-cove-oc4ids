@@ -27,7 +27,5 @@ jobs:
         run: |
           curl https://raw.githubusercontent.com/open-contracting/infrastructure/0.9-dev/docs/examples/example.json > example.json
           libcoveoc4ids example.json
-      - run: pytest -W error --cov libcoveoc4ids
-      - env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: coveralls --service=github
+      - run: coverage run --source=libcoveoc4ids -m pytest -W error
+      - uses: coverallsapp/github-action@v2
