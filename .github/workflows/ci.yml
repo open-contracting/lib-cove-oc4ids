@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        python-version: [3.8, 3.9, '3.10', '3.11', '3.12', pypy-3.9-v7.3.15]
+        python-version: [3.8, 3.9, '3.10', '3.11', '3.12', pypy-3.10]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -15,14 +15,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
           cache-dependency-path: setup.cfg
-      - if: matrix.os == 'ubuntu-latest' && matrix.python-version == 'pypy-3.9-v7.3.15'
+      - if: matrix.os == 'ubuntu-latest' && matrix.python-version == 'pypy-3.10'
         run: |
           sudo apt update
           sudo apt install libxml2-dev libxslt-dev libgeos-dev
       - run: pip install .[test]
-      - if: matrix.python-version == 'pypy-3.9-v7.3.15'
-        # https://github.com/django/asgiref/issues/393
-        run: pip install 'asgiref<3.7'
       - name: Test entry point
         run: |
           curl https://raw.githubusercontent.com/open-contracting/infrastructure/0.9-dev/docs/examples/example.json > example.json
