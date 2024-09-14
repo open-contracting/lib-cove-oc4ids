@@ -30,7 +30,7 @@ def oc4ids_json_output(
     else:
         raise NotImplementedError
 
-    context = common_checks_oc4ids(
+    return common_checks_oc4ids(
         context,
         output_dir,
         json_data,
@@ -38,5 +38,3 @@ def oc4ids_json_output(
         # common_checks_context(cache=True) caches the results to a file, which is not needed in API context.
         cache=False,
     )
-
-    return context

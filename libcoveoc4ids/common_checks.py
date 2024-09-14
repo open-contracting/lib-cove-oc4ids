@@ -5,7 +5,7 @@ from libcoveocds.lib.common_checks import get_releases_aggregates
 from libcoveoc4ids.additional_checks import ADDITIONAL_CHECKS, CONFORMANCE_CHECKS
 
 
-def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, cache=True):
+def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, *, cache=True):
     common_checks = common_checks_context(upload_dir, json_data, schema_obj, "schema.json", context, cache=cache)
     context.update(common_checks["context"])
 
