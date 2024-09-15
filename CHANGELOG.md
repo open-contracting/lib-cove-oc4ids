@@ -5,11 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## 0.7.0 (Unreleased)
+## 0.7.0 (2024-09-15)
 
 ### Changed
 
-- Some arguments must be keyword arguments:
+- Some arguments must be keyword arguments in:
 
   - `libcoveoc4ids.common_checks.common_checks_oc4ids`
   - `libcoveoc4ids.schema.SchemaOC4IDS.get_pkg_schema_obj`
