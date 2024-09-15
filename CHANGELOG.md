@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `libcoveoc4ids.common_checks.common_checks_oc4ids`
   - `libcoveoc4ids.schema.SchemaOC4IDS.get_pkg_schema_obj`
 
+- Drop support for Python 3.8.
+
 ## 0.6.0 (2024-02-27)
 
 ### Changed
@@ -47,7 +49,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- Drop support for Python 3.6 (end-of-life 2021-12-23).
+- Drop support for Python 3.6.
 
 ## 0.4.2 (2022-09-08)
 
