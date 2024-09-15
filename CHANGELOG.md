@@ -9,8 +9,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-### Changed
-
 - Some arguments must be keyword arguments:
 
   - `libcoveoc4ids.common_checks.common_checks_oc4ids`
