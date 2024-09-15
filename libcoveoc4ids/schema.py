@@ -19,7 +19,7 @@ class SchemaOC4IDS(SchemaJsonMixin):
         self.pkg_schema_url = urljoin(self.schema_host, self.pkg_schema_name)
         self.codelists = self.config.config["schema_codelists"]["0.9"]
 
-    def get_pkg_schema_obj(self, *, deref=False, use_extensions=False):  # noqa: ARG002
+    def get_pkg_schema_obj(self, *, deref=False, use_extensions=False):
         package_schema_obj = deepcopy(self._pkg_schema_obj)
         if deref:
             return self.deref_schema(self.pkg_schema_str)
