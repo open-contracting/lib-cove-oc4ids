@@ -24,7 +24,7 @@ PROJECT_ID = re.compile(r"^oc4ids\-[a-z0-9]{6}.")
 
 
 # See libcoveocds' empty_field.
-def empty_value(data, flat):
+def empty_value(_data, flat):
     missing = [
         path
         for path, value in flat.items()
@@ -43,7 +43,7 @@ def empty_value(data, flat):
         }
 
 
-def currency(data, flat):
+def currency(_data, flat):
     missing = [
         path[:-6]  # len("amount")
         for path in flat
@@ -91,7 +91,7 @@ def org_references_exist(data, flat):
         }
 
 
-def project_prefix(data, flat):
+def project_prefix(data, _flat):
     invalid = []
 
     if "projects" in data:

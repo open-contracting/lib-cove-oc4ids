@@ -109,7 +109,6 @@ def test_invalid_json():
 
 def _validate_check_result_object(check_result):
     """Check the common attributes of the result object"""
-
     # Tests to make sure we have the right dictionary created
     assert "check_id" in check_result, "Check result has no check_id field"
     assert "message" in check_result, "Check result has no message field"

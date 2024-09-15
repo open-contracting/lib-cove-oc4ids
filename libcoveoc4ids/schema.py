@@ -19,7 +19,7 @@ class SchemaOC4IDS(SchemaJsonMixin):
         self.pkg_schema_url = urljoin(self.schema_host, self.pkg_schema_name)
         self.codelists = self.config.config["schema_codelists"]["0.9"]
 
-    def get_pkg_schema_obj(self, *, deref=False, use_extensions=False):
+    def get_pkg_schema_obj(self, *, deref=False, use_extensions=False):  # noqa: ARG002 # lib-cove API
         package_schema_obj = deepcopy(self._pkg_schema_obj)
         if deref:
             return self.deref_schema(self.pkg_schema_str)
@@ -27,8 +27,7 @@ class SchemaOC4IDS(SchemaJsonMixin):
         return package_schema_obj
 
     def process_codelists(self):
-        """Load the appropriate codelists"""
-
+        """Load the appropriate codelists."""
         # Note the order of these function calls is required for it to work
         self.core_codelist_schema_paths = get_schema_codelist_paths(self, use_extensions=False)
         self.extended_codelist_schema_paths = get_schema_codelist_paths(self, use_extensions=True)
