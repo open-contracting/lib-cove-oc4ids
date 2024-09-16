@@ -54,14 +54,10 @@ ignore = [
     "PTH",
 ]
 
-[tool.ruff.lint.flake8-builtins]
-builtins-ignorelist = ["copyright"]
-
 [tool.ruff.lint.flake8-unused-arguments]
 ignore-variadic-names = true
 
 [tool.ruff.lint.per-file-ignores]
-"docs/conf.py" = ["D100", "INP001"]
 "tests/*" = [
     "ARG001", "D", "FBT003", "INP001", "PLR2004", "S", "TRY003",
 ]
