@@ -64,19 +64,17 @@ def currency(_data, flat):
 def org_references_exist(data, flat):
     missing = []
 
-    parties_ids = {}
+    party_ids = {}
 
     for path, value in flat.items():
         if match := ORG_PATHS.search(path):
             project_index = int(match.group(1))
 
-            if project_index not in parties_ids:
-                try:
-                    parties_ids[project_index] = [party["id"] for party in data["projects"][project_index]["parties"]]
-                except KeyError:
-                    parties_ids[project_index] = []
+            if project_index not in party_ids:
+                parties = data["projects"][project_index].get("parties", [])
+                party_ids[project_index] = [p["id"] for p in parties if "id" in p] if isinstance(parties, list) else []
 
-            if value not in parties_ids[project_index]:
+            if value not in party_ids[project_index]:
                 missing.append(path)
 
     if missing:
