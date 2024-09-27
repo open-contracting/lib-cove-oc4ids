@@ -130,7 +130,7 @@ def test_additional_checks():
 
         assert len(check_result["paths"]) > 0, "Check result has no paths"
 
-        if check_result["check_id"] in ["missing-currency", "missing-values", "missing-org-refs"]:
+        if check_result["check_id"] in {"missing-currency", "missing-values", "missing-org-refs"}:
             checked += 1
 
     assert checked == len(check_results), f"Checks tested not expected total for this test data {check_results}"
@@ -181,7 +181,7 @@ def test_conformance_tests():
 
         assert len(check_result["path_values"]) > 0, "Check result has no path values"
 
-        if check_result["check_id"] in ["invalid-project-ids"]:
+        if check_result["check_id"] == "invalid-project-ids":
             checked += 1
 
     assert checked == len(check_results), f"Checks tested not expected total for this test data {check_results}"
