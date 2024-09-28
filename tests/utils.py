@@ -11,5 +11,5 @@ def get_path_for_fixture(fixture_name):
 
 
 def test_fixture(fixture_name):
-    context = oc4ids_json_output("", get_path_for_fixture(fixture_name), "json")
+    context = oc4ids_json_output("", get_path_for_fixture(fixture_name))
     return context["validation_errors"], context

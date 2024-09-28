@@ -13,13 +13,12 @@ def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, *, cache=Tr
     context["conformance_checks"] = [result for function in CONFORMANCE_CHECKS for result in function(json_data, flat)]
     context["additional_checks"] = [result for function in ADDITIONAL_CHECKS for result in function(json_data, flat)]
 
-    validation_errors = common_checks["context"]["validation_errors"]
     additional_codelist_values = get_additional_codelist_values(schema_obj, json_data)
     closed_codelist_values = {key: value for key, value in additional_codelist_values.items() if not value["isopen"]}
     open_codelist_values = {key: value for key, value in additional_codelist_values.items() if value["isopen"]}
     context.update(
         {
-            "releases_aggregates": get_releases_aggregates(json_data, ignore_errors=bool(validation_errors)),
+            "releases_aggregates": get_releases_aggregates(json_data),
             "additional_closed_codelist_values": closed_codelist_values,
             "additional_open_codelist_values": open_codelist_values,
             "field_coverage": get_field_coverage(schema_obj, json_data.get("projects")),
