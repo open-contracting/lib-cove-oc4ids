@@ -1,6 +1,5 @@
 from libcove.lib.common import common_checks_context, get_additional_codelist_values, get_field_coverage
 from libcoveocds.lib.additional_checks import flatten_dict
-from libcoveocds.lib.common_checks import get_releases_aggregates
 
 from libcoveoc4ids.additional_checks import ADDITIONAL_CHECKS, CONFORMANCE_CHECKS
 
@@ -18,7 +17,6 @@ def common_checks_oc4ids(context, upload_dir, json_data, schema_obj, *, cache=Tr
     open_codelist_values = {key: value for key, value in additional_codelist_values.items() if value["isopen"]}
     context.update(
         {
-            "releases_aggregates": get_releases_aggregates(json_data),
             "additional_closed_codelist_values": closed_codelist_values,
             "additional_open_codelist_values": open_codelist_values,
             "field_coverage": get_field_coverage(schema_obj, json_data.get("projects")),
