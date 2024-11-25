@@ -28,7 +28,7 @@ def empty_value(_data, flat):
     missing = [
         path
         for path, value in flat.items()
-        if isinstance(value, str) and not value.strip() or isinstance(value, (dict, list)) and not value
+        if (isinstance(value, str) and not value.strip()) or (isinstance(value, (dict, list)) and not value)
     ]
 
     if missing:
