@@ -24,11 +24,11 @@ PROJECT_ID = re.compile(r"^oc4ids\-[a-z0-9]{6}.")
 
 
 # See libcoveocds' empty_field.
-def empty_value(data, flat):
+def empty_value(_data, flat):
     missing = [
         path
         for path, value in flat.items()
-        if isinstance(value, str) and not value.strip() or isinstance(value, (dict, list)) and not value
+        if (isinstance(value, str) and not value.strip()) or (isinstance(value, (dict, list)) and not value)
     ]
 
     if missing:
@@ -43,9 +43,11 @@ def empty_value(data, flat):
         }
 
 
-def currency(data, flat):
+def currency(_data, flat):
     missing = [
-        path[:-6] for path in flat if path.endswith("amount") and f"{path[:-6]}currency" not in flat  # len("amount")
+        path[:-6]  # len("amount")
+        for path in flat
+        if path.endswith("amount") and f"{path[:-6]}currency" not in flat
     ]
 
     if missing:
@@ -62,19 +64,17 @@ def currency(data, flat):
 def org_references_exist(data, flat):
     missing = []
 
-    parties_ids = {}
+    party_ids = {}
 
     for path, value in flat.items():
         if match := ORG_PATHS.search(path):
             project_index = int(match.group(1))
 
-            if project_index not in parties_ids:
-                try:
-                    parties_ids[project_index] = [party["id"] for party in data["projects"][project_index]["parties"]]
-                except KeyError:
-                    parties_ids[project_index] = []
+            if project_index not in party_ids:
+                parties = data["projects"][project_index].get("parties", [])
+                party_ids[project_index] = [p["id"] for p in parties if "id" in p] if isinstance(parties, list) else []
 
-            if value not in parties_ids[project_index]:
+            if value not in party_ids[project_index]:
                 missing.append(path)
 
     if missing:
@@ -89,7 +89,7 @@ def org_references_exist(data, flat):
         }
 
 
-def project_prefix(data, flat):
+def project_prefix(data, _flat):
     invalid = []
 
     if "projects" in data:

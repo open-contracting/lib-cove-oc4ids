@@ -5,6 +5,36 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.9.0 (2024-11-25)
+
+### Changed
+
+- Set maximum compatible version of libcoveocds.
+
+## 0.8.0 (2024-08-28)
+
+### Removed
+
+- `libcoveoc4ids.api.oc4ids_json_output` no longer accepts a `file_type` argument.
+- Reduce use of libcove.
+
+## 0.7.1 (2024-09-27)
+
+### Fixed
+
+- The organization reference check is robust to invalid ``parties`` data.
+
+## 0.7.0 (2024-09-15)
+
+### Changed
+
+- Some arguments must be keyword arguments in:
+
+  - `libcoveoc4ids.common_checks.common_checks_oc4ids`
+  - `libcoveoc4ids.schema.SchemaOC4IDS.get_pkg_schema_obj`
+
+- Drop support for Python 3.8.
+
 ## 0.6.0 (2024-02-27)
 
 ### Changed
@@ -38,7 +68,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- Drop support for Python 3.6 (end-of-life 2021-12-23).
+- Drop support for Python 3.6.
 
 ## 0.4.2 (2022-09-08)
 

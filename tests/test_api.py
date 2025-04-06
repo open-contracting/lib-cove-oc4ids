@@ -2,13 +2,12 @@ import json
 
 import pytest
 
-import tests.utils as utils
+from tests import utils
 
 
 def test_valid_data():
     """Test valid data should have no errors"""
     errors, ctx = utils.test_fixture("example-data.json")
-    print(ctx)
 
     assert errors == [], "Validation errors found"
 
@@ -76,7 +75,7 @@ def test_validation_errors():
         else:
             # We shouldn't reach here if we have sorted all the validation
             # errors
-            assert False, "Validation error '%s' not captured" % err
+            raise AssertionError(f"Validation error '{err}' not captured")
 
     assert len(ctx["additional_closed_codelist_values"]) == 5
 
@@ -110,7 +109,6 @@ def test_invalid_json():
 
 def _validate_check_result_object(check_result):
     """Check the common attributes of the result object"""
-
     # Tests to make sure we have the right dictionary created
     assert "check_id" in check_result, "Check result has no check_id field"
     assert "message" in check_result, "Check result has no message field"
@@ -132,10 +130,10 @@ def test_additional_checks():
 
         assert len(check_result["paths"]) > 0, "Check result has no paths"
 
-        if check_result["check_id"] in ["missing-currency", "missing-values", "missing-org-refs"]:
+        if check_result["check_id"] in {"missing-currency", "missing-values", "missing-org-refs"}:
             checked += 1
 
-    assert checked == len(check_results), "Checks tested not expected total for this test data %s" % check_results
+    assert checked == len(check_results), f"Checks tested not expected total for this test data {check_results}"
 
 
 def test_additional_checks_no_parties():
@@ -183,7 +181,7 @@ def test_conformance_tests():
 
         assert len(check_result["path_values"]) > 0, "Check result has no path values"
 
-        if check_result["check_id"] in ["invalid-project-ids"]:
+        if check_result["check_id"] == "invalid-project-ids":
             checked += 1
 
-    assert checked == len(check_results), "Checks tested not expected total for this test data %s" % check_results
+    assert checked == len(check_results), f"Checks tested not expected total for this test data {check_results}"
