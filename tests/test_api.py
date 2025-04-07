@@ -142,9 +142,9 @@ def test_additional_checks_no_parties():
 
     _, ctx = utils.test_fixture("example-additional-checks-no-parties.json")
 
-    assert (
-        len(ctx["additional_checks"][0]["paths"]) == 15
-    ), "The number of paths where organisation refs are missing is not correct"
+    assert len(ctx["additional_checks"][0]["paths"]) == 15, (
+        "The number of paths where organisation refs are missing is not correct"
+    )
 
 
 def test_additional_checks_no_projects():
