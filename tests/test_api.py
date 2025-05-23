@@ -103,7 +103,7 @@ def test_additional_fields():
 
 def test_invalid_json():
     """Should cause an exception on broken json file"""
-    with pytest.raises(json.decoder.JSONDecodeError):
+    with pytest.raises(json.JSONDecodeError):
         utils.test_fixture("invalid-json.json")
 
 
