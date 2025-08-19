@@ -8,10 +8,10 @@ version = "0.9.1"
 authors = [{name = "Open Contracting Partnership and Open Data Services Co-operative Limited", email = "data@open-contracting.org"}]
 description = "A data review library for the Open Contracting for Infrastructure Data Standards (OC4IDS)"
 readme = "README.rst"
-license = {text = "AGPL-3.0-or-later"}
+license = {text = "BSD"}
 urls = {Homepage = "https://github.com/open-contracting/lib-cove-oc4ids"}
 classifiers = [
-    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "License :: OSI Approved :: BSD License",
     "Operating System :: MacOS",
     "Operating System :: POSIX :: Linux",
     "Programming Language :: Python :: 3.10",
