@@ -7,14 +7,14 @@ from tests import utils
 
 def test_valid_data():
     """Test valid data should have no errors"""
-    errors, ctx = utils.test_fixture("example-data.json")
+    errors, _ = utils.test_fixture("example-data.json")
 
     assert errors == [], "Validation errors found"
 
 
 def test_invalid_data():
     """Test valid data but with no useful fields"""
-    errors, ctx = utils.test_fixture("rubbish.json")
+    errors, _ = utils.test_fixture("rubbish.json")
 
     assert len(errors) == 5, "Expecting 5 validation errors"
 
