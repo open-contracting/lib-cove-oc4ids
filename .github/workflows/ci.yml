@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        python-version: ['3.10', '3.11', '3.12', '3.13']
+        python-version: ['3.10', '3.11', '3.12', '3.13', pypy-3.10]
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -17,6 +17,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
           cache-dependency-path: pyproject.toml
+      - if: matrix.os == 'ubuntu-latest' && matrix.python-version == 'pypy-3.10'
+        run: |
+          sudo apt update
+          sudo apt install libxml2-dev libxslt-dev libgeos-dev
       - run: pip install .[test]
       - name: Test entry point
         run: |
