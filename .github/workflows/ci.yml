@@ -27,6 +27,6 @@ jobs:
           curl https://raw.githubusercontent.com/open-contracting/infrastructure/0.9-dev/docs/examples/example.json > example.json
           libcoveoc4ids example.json
       - run: coverage run --source=libcoveoc4ids -m pytest -W error
-      - uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de # v5.5.2
+      - uses: codecov/codecov-action@1af58845a975a7985b0beb0cbe6fbbb71a41dbad # v5.5.3
         with:
           fail_ci_if_error: true
