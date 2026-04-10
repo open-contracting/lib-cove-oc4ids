@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
-### Changed
+### Added
 
 - Add support for Python 3.13, 3.14.
+
+### Removed
+
 - Drop support for Python 3.9.
 
 ## 0.9.1 (2025-04-08)
@@ -46,6 +49,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `libcoveoc4ids.common_checks.common_checks_oc4ids`
   - `libcoveoc4ids.schema.SchemaOC4IDS.get_pkg_schema_obj`
 
+### Removed
+
 - Drop support for Python 3.8.
 
 ## 0.6.0 (2024-02-27)
@@ -69,7 +74,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## 0.5.0 (2023-12-19)
 
-### Changed
+### Removed
 
 - Drop support for libcove < 0.32.
 
@@ -79,7 +84,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Support for OC4IDS 0.9.4.
 
-### Changed
+### Removed
 
 - Drop support for Python 3.6.
 
