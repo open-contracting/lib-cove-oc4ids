@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- Add support for Python 3.13, 3.14.
+- Add support for Python 3.13, 3.14, 3.15.
 
 ### Removed
 
-- Drop support for Python 3.9.
+- Drop support for Python 3.9, 3.10.
 
 ## 0.9.1 (2025-04-08)
 
