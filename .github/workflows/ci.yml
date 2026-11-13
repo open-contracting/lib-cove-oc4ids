@@ -22,11 +22,13 @@ jobs:
           cache: pip
           cache-dependency-path: pyproject.toml
       - if: matrix.os == 'ubuntu-latest' && matrix.python-version == 'pypy-3.11'
+        shell: bash
         run: |
           sudo apt update
           sudo apt install libxml2-dev libxslt-dev libgeos-dev
       - run: pip install .[test]
       - name: Test entry point
+        shell: bash
         run: |
           curl https://raw.githubusercontent.com/open-contracting/infrastructure/0.9-dev/docs/examples/example.json > example.json
           libcoveoc4ids example.json
